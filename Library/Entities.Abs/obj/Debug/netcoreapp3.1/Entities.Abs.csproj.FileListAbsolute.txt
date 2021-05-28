@@ -7,3 +7,12 @@ C:\Users\Alona\Desktop\заочка\2 курс\Профес.практика п�
 C:\Users\Alona\Desktop\заочка\2 курс\Профес.практика програм.інж\proj\Library\Entities.Abs\obj\Debug\netcoreapp3.1\Entities.Abs.csproj.CoreCompileInputs.cache
 C:\Users\Alona\Desktop\заочка\2 курс\Профес.практика програм.інж\proj\Library\Entities.Abs\obj\Debug\netcoreapp3.1\Entities.Abs.dll
 C:\Users\Alona\Desktop\заочка\2 курс\Профес.практика програм.інж\proj\Library\Entities.Abs\obj\Debug\netcoreapp3.1\Entities.Abs.pdb
+D:\univer\unic3kurs\Cursova\Профес.практика програм.інж\proj\Library\Entities.Abs\bin\Debug\netcoreapp3.1\Entities.Abs.deps.json
+D:\univer\unic3kurs\Cursova\Профес.практика програм.інж\proj\Library\Entities.Abs\bin\Debug\netcoreapp3.1\Entities.Abs.dll
+D:\univer\unic3kurs\Cursova\Профес.практика програм.інж\proj\Library\Entities.Abs\bin\Debug\netcoreapp3.1\Entities.Abs.pdb
+D:\univer\unic3kurs\Cursova\Профес.практика програм.інж\proj\Library\Entities.Abs\obj\Debug\netcoreapp3.1\Entities.Abs.csprojAssemblyReference.cache
+D:\univer\unic3kurs\Cursova\Профес.практика програм.інж\proj\Library\Entities.Abs\obj\Debug\netcoreapp3.1\Entities.Abs.AssemblyInfoInputs.cache
+D:\univer\unic3kurs\Cursova\Профес.практика програм.інж\proj\Library\Entities.Abs\obj\Debug\netcoreapp3.1\Entities.Abs.AssemblyInfo.cs
+D:\univer\unic3kurs\Cursova\Профес.практика програм.інж\proj\Library\Entities.Abs\obj\Debug\netcoreapp3.1\Entities.Abs.csproj.CoreCompileInputs.cache
+D:\univer\unic3kurs\Cursova\Профес.практика програм.інж\proj\Library\Entities.Abs\obj\Debug\netcoreapp3.1\Entities.Abs.dll
+D:\univer\unic3kurs\Cursova\Профес.практика програм.інж\proj\Library\Entities.Abs\obj\Debug\netcoreapp3.1\Entities.Abs.pdb

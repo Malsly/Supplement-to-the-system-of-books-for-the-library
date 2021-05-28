@@ -9,6 +9,7 @@
       "DAL.Imp/1.0.0": {
         "dependencies": {
           "DAL.Abs": "1.0.0",
+          "DTObjects": "1.0.0",
           "EntityFramework": "6.4.4",
           "Microsoft.EntityFrameworkCore.Abstractions": "5.0.6",
           "Microsoft.EntityFrameworkCore.Analyzers": "5.0.6",
@@ -1180,6 +1181,14 @@
           "DAL.Abs.dll": {}
         }
       },
+      "DTObjects/1.0.0": {
+        "dependencies": {
+          "Entities.Abs": "1.0.0"
+        },
+        "runtime": {
+          "DTObjects.dll": {}
+        }
+      },
       "Entities.Abs/1.0.0": {
         "runtime": {
           "Entities.Abs.dll": {}
@@ -1923,6 +1932,11 @@
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
     },
     "DAL.Abs/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DTObjects/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

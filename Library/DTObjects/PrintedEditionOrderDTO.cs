@@ -5,13 +5,11 @@ using System.Text;
 
 namespace DTObjects
 {
-    public class PrintedEditionOrderDTO : IEntity, IPrintedEdition
+    public class PrintedEditionOrderDTO : IEntity
     {
         public int Id { get; set; }
         public BookDTO PrintedEdition { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public string Name { get; set; }
-        public float Rate { get; set; }
     }
 }

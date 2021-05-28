@@ -5,7 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Aspose.PDF" Version="21.5.0" />
+    <PackageReference Include="iTextSharp" Version="5.5.13.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\BL.Imp\BL.Abs.csproj" />
+    <ProjectReference Include="..\DAL.Imp\DAL.Imp.csproj" />
     <ProjectReference Include="..\DTObjects\DTObjects.csproj" />
     <ProjectReference Include="..\Entities.Abs\Entities.Abs.csproj" />
     <ProjectReference Include="..\Entities.Imp\Entities.Imp.csproj" />

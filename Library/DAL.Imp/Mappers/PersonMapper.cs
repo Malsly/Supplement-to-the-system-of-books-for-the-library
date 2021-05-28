@@ -8,7 +8,6 @@ using System.Text;
 
 namespace DAL.Imp.Mappers
 {
-
     public class PersonMapper : IMapper<Person, PersonDTO>
     {
       public GenericRepository<Person> repo;
@@ -29,7 +28,6 @@ namespace DAL.Imp.Mappers
             person.Name = dto.Name;
             person.Surname = dto.Surname;
             person.TakenBook = dto.TakenBook.Select(prorder => EntityDTOConverter.PROrderDTOtoPROrder(prorder)).ToList();
-            person.MoneyDebt = dto.MoneyDebt;
             person.Access = dto.Access;
             person.Birthday = dto.Birthday;
             person.BookDebt = dto.BookDebt.Select(prorder => EntityDTOConverter.PROrderDTOtoPROrder(prorder)).ToList();

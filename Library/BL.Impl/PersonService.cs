@@ -1,5 +1,6 @@
 ﻿using BL.Imp;
 using DAL.Abs;
+using DAL.Imp;
 using DTObjects;
 using Entities.Imp;
 using System;
@@ -9,14 +10,31 @@ using System.Text;
 
 namespace BL.Impl
 {
-    class PersonService : IServise<Person, PersonDTO>
+    public class PersonService : IServise<Person, PersonDTO>
     {
-        public IGenericRepository<Person> Rep { get; set; }
+        private IUnitOfWork unitOfWork;
+        private IGenericRepository<Person> rep;
         public IMapper<Person, PersonDTO> Mapper { get; set; }
+
+        public PersonService(IMapper<Person, PersonDTO> personMapper)
+        {
+            unitOfWork = new UnitOfWork();
+            rep = unitOfWork.PersonRepository;
+            Mapper = personMapper;
+        }
+
+        public IGenericRepository<Person> Rep
+        {
+            get
+            {
+                return rep;
+            }
+        }
 
         public IResult Add(PersonDTO dto)
         {
             Rep.Insert(Mapper.DeMap(dto));
+            unitOfWork.Save();
             return new Result()
             {
                 ResponceStatusType = ResponceStatusType.Successed
@@ -26,10 +44,16 @@ namespace BL.Impl
         public IResult Delete(int id)
         {
             Rep.Delete(id);
+            unitOfWork.Save();
             return new Result()
             {
                 ResponceStatusType = ResponceStatusType.Successed
             };
+        }
+
+        public IResult Delete(PersonDTO dto)
+        {
+            return this.Delete(dto.Id);
         }
 
         public IDataResult<PersonDTO> Get(int id)
@@ -53,6 +77,7 @@ namespace BL.Impl
         public IResult Update(PersonDTO dto)
         {
             Rep.Update(Mapper.DeMap(dto));
+            unitOfWork.Save();
             return new Result()
             {
                 ResponceStatusType = ResponceStatusType.Successed

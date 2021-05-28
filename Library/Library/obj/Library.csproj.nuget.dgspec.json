@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\Library\\Library.csproj": {}
+    "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\Library\\Library.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\DAL.Abs\\DAL.Abs.csproj": {
+    "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\BL.Impl\\BL.Impl.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\DAL.Abs\\DAL.Abs.csproj",
-        "projectName": "DAL.Abs",
-        "projectPath": "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\DAL.Abs\\DAL.Abs.csproj",
-        "packagesPath": "C:\\Users\\Alona\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\DAL.Abs\\obj\\",
+        "projectUniqueName": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\BL.Impl\\BL.Impl.csproj",
+        "projectName": "BL.Impl",
+        "projectPath": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\BL.Impl\\BL.Impl.csproj",
+        "packagesPath": "C:\\Users\\Макс\\.nuget\\packages\\",
+        "outputPath": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\BL.Impl\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Alona\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Макс\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,12 +26,22 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\Entities.Abs\\Entities.Abs.csproj": {
-                "projectPath": "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\Entities.Abs\\Entities.Abs.csproj"
+              "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\BL.Imp\\BL.Abs.csproj": {
+                "projectPath": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\BL.Imp\\BL.Abs.csproj"
               },
-              "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\Entities.Imp\\Entities.Imp.csproj": {
-                "projectPath": "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\Entities.Imp\\Entities.Imp.csproj"
+              "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\DAL.Imp\\DAL.Imp.csproj": {
+                "projectPath": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\DAL.Imp\\DAL.Imp.csproj"
+              },
+              "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\DTObjects\\DTObjects.csproj": {
+                "projectPath": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\DTObjects\\DTObjects.csproj"
+              },
+              "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\Entities.Abs\\Entities.Abs.csproj": {
+                "projectPath": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\Entities.Abs\\Entities.Abs.csproj"
+              },
+              "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\Entities.Imp\\Entities.Imp.csproj": {
+                "projectPath": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\Entities.Imp\\Entities.Imp.csproj"
               }
             }
           }
@@ -44,6 +54,148 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Aspose.PDF": {
+              "target": "Package",
+              "version": "[21.5.0, )"
+            },
+            "iTextSharp": {
+              "target": "Package",
+              "version": "[5.5.13.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\BL.Imp\\BL.Abs.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\BL.Imp\\BL.Abs.csproj",
+        "projectName": "BL.Abs",
+        "projectPath": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\BL.Imp\\BL.Abs.csproj",
+        "packagesPath": "C:\\Users\\Макс\\.nuget\\packages\\",
+        "outputPath": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\BL.Imp\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Макс\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\DAL.Abs\\DAL.Abs.csproj": {
+                "projectPath": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\DAL.Abs\\DAL.Abs.csproj"
+              },
+              "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\DTObjects\\DTObjects.csproj": {
+                "projectPath": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\DTObjects\\DTObjects.csproj"
+              },
+              "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\Entities.Abs\\Entities.Abs.csproj": {
+                "projectPath": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\Entities.Abs\\Entities.Abs.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Aspose.PDF": {
+              "target": "Package",
+              "version": "[21.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\DAL.Abs\\DAL.Abs.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\DAL.Abs\\DAL.Abs.csproj",
+        "projectName": "DAL.Abs",
+        "projectPath": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\DAL.Abs\\DAL.Abs.csproj",
+        "packagesPath": "C:\\Users\\Макс\\.nuget\\packages\\",
+        "outputPath": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\DAL.Abs\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Макс\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\Entities.Abs\\Entities.Abs.csproj": {
+                "projectPath": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\Entities.Abs\\Entities.Abs.csproj"
+              },
+              "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\Entities.Imp\\Entities.Imp.csproj": {
+                "projectPath": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\Entities.Imp\\Entities.Imp.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "EntityFramework": {
               "target": "Package",
@@ -69,21 +221,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.409\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\DAL.Imp\\DAL.Imp.csproj": {
+    "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\DAL.Imp\\DAL.Imp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\DAL.Imp\\DAL.Imp.csproj",
+        "projectUniqueName": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\DAL.Imp\\DAL.Imp.csproj",
         "projectName": "DAL.Imp",
-        "projectPath": "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\DAL.Imp\\DAL.Imp.csproj",
-        "packagesPath": "C:\\Users\\Alona\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\DAL.Imp\\obj\\",
+        "projectPath": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\DAL.Imp\\DAL.Imp.csproj",
+        "packagesPath": "C:\\Users\\Макс\\.nuget\\packages\\",
+        "outputPath": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\DAL.Imp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Alona\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Макс\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -95,12 +247,13 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\DAL.Abs\\DAL.Abs.csproj": {
-                "projectPath": "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\DAL.Abs\\DAL.Abs.csproj"
+              "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\DAL.Abs\\DAL.Abs.csproj": {
+                "projectPath": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\DAL.Abs\\DAL.Abs.csproj"
               },
-              "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\DTObjects\\DTObjects.csproj": {
-                "projectPath": "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\DTObjects\\DTObjects.csproj"
+              "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\DTObjects\\DTObjects.csproj": {
+                "projectPath": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\DTObjects\\DTObjects.csproj"
               }
             }
           }
@@ -113,6 +266,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "EntityFramework": {
               "target": "Package",
@@ -156,21 +310,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.409\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\DTObjects\\DTObjects.csproj": {
+    "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\DTObjects\\DTObjects.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\DTObjects\\DTObjects.csproj",
+        "projectUniqueName": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\DTObjects\\DTObjects.csproj",
         "projectName": "DTObjects",
-        "projectPath": "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\DTObjects\\DTObjects.csproj",
-        "packagesPath": "C:\\Users\\Alona\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\DTObjects\\obj\\",
+        "projectPath": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\DTObjects\\DTObjects.csproj",
+        "packagesPath": "C:\\Users\\Макс\\.nuget\\packages\\",
+        "outputPath": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\DTObjects\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Alona\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Макс\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -182,9 +336,10 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\Entities.Abs\\Entities.Abs.csproj": {
-                "projectPath": "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\Entities.Abs\\Entities.Abs.csproj"
+              "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\Entities.Abs\\Entities.Abs.csproj": {
+                "projectPath": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\Entities.Abs\\Entities.Abs.csproj"
               }
             }
           }
@@ -197,6 +352,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -212,21 +368,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.409\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\Entities.Abs\\Entities.Abs.csproj": {
+    "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\Entities.Abs\\Entities.Abs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\Entities.Abs\\Entities.Abs.csproj",
+        "projectUniqueName": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\Entities.Abs\\Entities.Abs.csproj",
         "projectName": "Entities.Abs",
-        "projectPath": "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\Entities.Abs\\Entities.Abs.csproj",
-        "packagesPath": "C:\\Users\\Alona\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\Entities.Abs\\obj\\",
+        "projectPath": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\Entities.Abs\\Entities.Abs.csproj",
+        "packagesPath": "C:\\Users\\Макс\\.nuget\\packages\\",
+        "outputPath": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\Entities.Abs\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Alona\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Макс\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -238,6 +394,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -249,6 +406,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -264,21 +422,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.409\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\Entities.Imp\\Entities.Imp.csproj": {
+    "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\Entities.Imp\\Entities.Imp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\Entities.Imp\\Entities.Imp.csproj",
+        "projectUniqueName": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\Entities.Imp\\Entities.Imp.csproj",
         "projectName": "Entities.Imp",
-        "projectPath": "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\Entities.Imp\\Entities.Imp.csproj",
-        "packagesPath": "C:\\Users\\Alona\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\Entities.Imp\\obj\\",
+        "projectPath": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\Entities.Imp\\Entities.Imp.csproj",
+        "packagesPath": "C:\\Users\\Макс\\.nuget\\packages\\",
+        "outputPath": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\Entities.Imp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Alona\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Макс\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -290,9 +448,10 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\Entities.Abs\\Entities.Abs.csproj": {
-                "projectPath": "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\Entities.Abs\\Entities.Abs.csproj"
+              "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\Entities.Abs\\Entities.Abs.csproj": {
+                "projectPath": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\Entities.Abs\\Entities.Abs.csproj"
               }
             }
           }
@@ -305,6 +464,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -320,21 +480,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.409\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\Library\\Library.csproj": {
+    "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\Library\\Library.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\Library\\Library.csproj",
+        "projectUniqueName": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\Library\\Library.csproj",
         "projectName": "Library",
-        "projectPath": "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\Library\\Library.csproj",
-        "packagesPath": "C:\\Users\\Alona\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\Library\\obj\\",
+        "projectPath": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\Library\\Library.csproj",
+        "packagesPath": "C:\\Users\\Макс\\.nuget\\packages\\",
+        "outputPath": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\Library\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Alona\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Макс\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -346,9 +506,13 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\DAL.Imp\\DAL.Imp.csproj": {
-                "projectPath": "C:\\Users\\Alona\\Desktop\\заочка\\2 курс\\Профес.практика програм.інж\\proj\\Library\\DAL.Imp\\DAL.Imp.csproj"
+              "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\BL.Impl\\BL.Impl.csproj": {
+                "projectPath": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\BL.Impl\\BL.Impl.csproj"
+              },
+              "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\BL.Imp\\BL.Abs.csproj": {
+                "projectPath": "D:\\univer\\unic3kurs\\Cursova\\Профес.практика програм.інж\\proj\\Library\\BL.Imp\\BL.Abs.csproj"
               }
             }
           }
@@ -361,6 +525,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -379,7 +544,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.409\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

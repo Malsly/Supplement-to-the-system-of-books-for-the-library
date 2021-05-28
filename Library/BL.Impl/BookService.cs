@@ -1,5 +1,6 @@
 ﻿using BL.Imp;
 using DAL.Abs;
+using DAL.Imp;
 using DTObjects;
 using Entities.Imp;
 using System;
@@ -9,14 +10,30 @@ using System.Text;
 
 namespace BL.Impl
 {
-    class BookService: IServise<Book, BookDTO>
+    public class BookService : IServise<Book, BookDTO>
     {
-        public IGenericRepository<Book> Rep { get; set; }
+        private IUnitOfWork unitOfWork;
+        private IGenericRepository<Book> rep;
         public IMapper<Book, BookDTO> Mapper { get; set; }
 
+        public BookService(IMapper<Book, BookDTO> accauntMapper)
+        {
+            unitOfWork = new UnitOfWork();
+            rep = unitOfWork.BookRepository;
+            Mapper = accauntMapper;
+        }
+
+        public IGenericRepository<Book> Rep
+        {
+            get
+            {
+                return rep;
+            }
+        }
         public IResult Add(BookDTO dto)
         {
             Rep.Insert(Mapper.DeMap(dto));
+            unitOfWork.Save();
             return new Result()
             {
                 ResponceStatusType = ResponceStatusType.Successed
@@ -26,10 +43,16 @@ namespace BL.Impl
         public IResult Delete(int id)
         {
             Rep.Delete(id);
+            unitOfWork.Save();
             return new Result()
             {
                 ResponceStatusType = ResponceStatusType.Successed
             };
+        }
+
+        public IResult Delete(BookDTO dto)
+        {
+            return this.Delete(dto.Id);
         }
 
         public IDataResult<BookDTO> Get(int id)
@@ -53,6 +76,7 @@ namespace BL.Impl
         public IResult Update(BookDTO dto)
         {
             Rep.Update(Mapper.DeMap(dto));
+            unitOfWork.Save();
             return new Result()
             {
                 ResponceStatusType = ResponceStatusType.Successed

@@ -1,5 +1,6 @@
 ﻿using BL.Imp;
 using DAL.Abs;
+using DAL.Imp;
 using DTObjects;
 using Entities.Abs;
 using Entities.Imp;
@@ -11,12 +12,29 @@ namespace BL.Impl
 {
     public class PrintedEditionOrderService : IServise<PrintedEditionOrder, PrintedEditionOrderDTO>
     {
-        public IGenericRepository<PrintedEditionOrder> Rep { get ; set ; }
+        private IUnitOfWork unitOfWork;
+        private IGenericRepository<PrintedEditionOrder> rep;
         public IMapper<PrintedEditionOrder, PrintedEditionOrderDTO> Mapper { get; set; }
+
+        public PrintedEditionOrderService(IMapper<PrintedEditionOrder, PrintedEditionOrderDTO> accauntMapper)
+        {
+            unitOfWork = new UnitOfWork();
+            rep = unitOfWork.PrintedEditionOrderRepository;
+            Mapper = accauntMapper;
+        }
+
+        public IGenericRepository<PrintedEditionOrder> Rep
+        {
+            get
+            {
+                return rep;
+            }
+        }
 
         public IResult Add(PrintedEditionOrderDTO dto)
         {
             Rep.Insert(Mapper.DeMap(dto));
+            unitOfWork.Save();
             return new Result()
             {
                 ResponceStatusType = ResponceStatusType.Successed
@@ -26,10 +44,16 @@ namespace BL.Impl
         public IResult Delete(int id)
         {
             Rep.Delete(id);
+            unitOfWork.Save();
             return new Result()
             {
                 ResponceStatusType = ResponceStatusType.Successed
             };
+        }
+
+        public IResult Delete(PrintedEditionOrderDTO dto)
+        {
+            return this.Delete(dto.Id);
         }
 
         public IDataResult<PrintedEditionOrderDTO> Get(int id)
@@ -53,10 +77,13 @@ namespace BL.Impl
         public IResult Update(PrintedEditionOrderDTO dto)
         {
             Rep.Update(Mapper.DeMap(dto));
+            unitOfWork.Save();
             return new Result()
             {
                 ResponceStatusType = ResponceStatusType.Successed
             };
         }
+
+        
     }
 }

@@ -1,5 +1,6 @@
 ﻿using BL.Imp;
 using DAL.Abs;
+using DAL.Imp;
 using DTObjects;
 using Entities.Imp;
 using System;
@@ -9,14 +10,31 @@ using System.Text;
 
 namespace BL.Impl
 {
-    class AuthorService : IServise<Author, AuthorDTO>
+    public class AuthorService : IServise<Author, AuthorDTO>
     {
-        public IGenericRepository<Author> Rep { get; set; }
+        private IUnitOfWork unitOfWork;
+        private IGenericRepository<Author> rep;
         public IMapper<Author, AuthorDTO> Mapper { get; set; }
+
+        public AuthorService(IMapper<Author, AuthorDTO> accauntMapper)
+        {
+            unitOfWork = new UnitOfWork();
+            rep = unitOfWork.AuthorRepository;
+            Mapper = accauntMapper;
+        }
+
+        public IGenericRepository<Author> Rep
+        {
+            get
+            {
+                return rep;
+            }
+        }
 
         public IResult Add(AuthorDTO dto)
         {
             Rep.Insert(Mapper.DeMap(dto));
+            unitOfWork.Save();
             return new Result()
             {
                 ResponceStatusType = ResponceStatusType.Successed
@@ -26,10 +44,16 @@ namespace BL.Impl
         public IResult Delete(int id)
         {
             Rep.Delete(id);
+            unitOfWork.Save();
             return new Result()
             {
                 ResponceStatusType = ResponceStatusType.Successed
             };
+        }
+
+        public IResult Delete(AuthorDTO dto)
+        {
+            return this.Delete(dto.Id);
         }
 
         public IDataResult<AuthorDTO> Get(int id)
@@ -53,6 +77,7 @@ namespace BL.Impl
         public IResult Update(AuthorDTO dto)
         {
             Rep.Update(Mapper.DeMap(dto));
+            unitOfWork.Save();
             return new Result()
             {
                 ResponceStatusType = ResponceStatusType.Successed

@@ -1,6 +1,7 @@
 ﻿using BL.Abs;
 using BL.Imp;
 using DAL.Abs;
+using DAL.Imp;
 using DTObjects;
 using Entities.Abs;
 using Entities.Imp;
@@ -11,21 +12,52 @@ using System.Text;
 
 namespace BL.Impl
 {
-    class AccauntService : IServise<Accaunt, AccauntDTO>, IAccauntService
+    public class AccauntService : IServise<Accaunt, AccauntDTO>, IAccauntService
     {
-        public IGenericRepository<Accaunt> Rep { get; set; }
+        private IUnitOfWork unitOfWork;
+        private IGenericRepository<Accaunt> rep;
         public IMapper<Accaunt, AccauntDTO> Mapper { get; set; }
 
-        public PersonDTO LoginAccaunt(string Login, string Password)
+        public AccauntService(IMapper<Accaunt, AccauntDTO> accauntMapper) 
+        {
+            unitOfWork = new UnitOfWork();
+            rep = unitOfWork.AccauntRepository;
+            Mapper = accauntMapper;
+        }
+
+        public IGenericRepository<Accaunt> Rep
+        {
+            get
+            {
+                return rep;
+            }
+        }
+
+        public IDataResult<PersonDTO> LoginAccaunt(string Login, string Password)
         {
             List<AccauntDTO> accauntDTOs = this.GetAll().Data;
-            AccauntDTO accauntDTO = accauntDTOs.Find(accaunt => accaunt.Login == Login && accaunt.Password == Password);
-            return accauntDTO.Person;
+            AccauntDTO accauntDTO = accauntDTOs.FirstOrDefault(accaunt => accaunt.Login == Login && accaunt.Password == Password);
+            if (accauntDTO != null) 
+            {
+                return new DataResult<PersonDTO>()
+                {
+                    Data = accauntDTO.Person,
+                    ResponceStatusType = ResponceStatusType.Successed
+                };
+            }
+
+            return new DataResult<PersonDTO>()
+            {
+                Message = "Accaunt not finded",
+                ResponceStatusType = ResponceStatusType.Error
+            };
+
         }
 
         public IResult Add(AccauntDTO dto)
         {
             Rep.Insert(Mapper.DeMap(dto));
+            unitOfWork.Save();
             return new Result()
             {
                 ResponceStatusType = ResponceStatusType.Successed
@@ -35,10 +67,16 @@ namespace BL.Impl
         public IResult Delete(int id)
         {
             Rep.Delete(id);
+            unitOfWork.Save();
             return new Result()
             {
                 ResponceStatusType = ResponceStatusType.Successed
             };
+        }
+
+        public IResult Delete(AccauntDTO dto)
+        {
+            return this.Delete(dto.Id);
         }
 
         public IDataResult<AccauntDTO> Get(int id)
@@ -62,6 +100,7 @@ namespace BL.Impl
         public IResult Update(AccauntDTO dto)
         {
             Rep.Update(Mapper.DeMap(dto));
+            unitOfWork.Save();
             return new Result()
             {
                 ResponceStatusType = ResponceStatusType.Successed

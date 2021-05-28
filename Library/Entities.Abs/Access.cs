@@ -7,6 +7,7 @@ namespace Entities.Abs
     public enum Access
     {
         Administrator,
-        Reader
+        Reader,
+        Library
     }
 }

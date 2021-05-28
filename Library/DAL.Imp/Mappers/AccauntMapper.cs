@@ -7,7 +7,7 @@ using System.Text;
 
 namespace DAL.Imp.Mappers
 {
-    class AccauntMapper : IMapper<Accaunt, AccauntDTO> 
+    public class AccauntMapper : IMapper<Accaunt, AccauntDTO> 
     {
 
         public GenericRepository<Accaunt> repo;

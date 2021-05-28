@@ -7,8 +7,8 @@ using System.Text;
 
 namespace DAL.Imp.Mappers
 {
-  
-    class AuthorMapper : IMapper<Author, AuthorDTO>
+
+    public class AuthorMapper : IMapper<Author, AuthorDTO>
     {
         public GenericRepository<Author> repo;
 

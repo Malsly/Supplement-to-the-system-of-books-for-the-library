@@ -8,12 +8,13 @@ namespace BL.Imp
 {
     public interface IServise<TEntity, TEntityDTO> where TEntity : class where TEntityDTO : class
     {
-        public IGenericRepository<TEntity> Rep { get; set; }
+        public IGenericRepository<TEntity> Rep { get; }
         IDataResult<List<TEntityDTO>> GetAll();
         IDataResult<TEntityDTO> Get(int id);
         IResult Add(TEntityDTO dto);
         IResult Update(TEntityDTO dto);
         IResult Delete(int id);
+        IResult Delete(TEntityDTO dto);
 
     }
 }

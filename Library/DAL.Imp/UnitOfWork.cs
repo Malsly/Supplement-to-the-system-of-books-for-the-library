@@ -10,36 +10,55 @@ namespace DAL.Imp
     {
         private bool disposed;
 
-        public UnitOfWork()
+        private readonly static ILibraryContext Context = new LibraryContext();
+        private readonly static GenericRepository<Accaunt> accauntRepository = new GenericRepository<Accaunt>(Context);
+        private readonly static GenericRepository<Author> authorRepository = new GenericRepository<Author>(Context);
+        private readonly static GenericRepository<Book> bookRepository = new GenericRepository<Book>(Context);
+        private readonly static GenericRepository<Person> personRepository = new GenericRepository<Person>(Context);
+        private readonly static GenericRepository<PrintedEditionOrder> PEorderRepository = new GenericRepository<PrintedEditionOrder>(Context);
+
+        public IGenericRepository<Person> PersonRepository 
+        { 
+            get 
+            {
+                return personRepository;
+            } 
+        }
+        public IGenericRepository<Accaunt> AccauntRepository
         {
-            Context = new LibraryContext();
-            accauntRepository = new GenericRepository<Accaunt>(Context);
-            authorRepository = new GenericRepository<Author>(Context);
-            bookRepository = new GenericRepository<Book>(Context);
-            personRepository = new GenericRepository<Person>(Context);
-            PEorderRepository = new GenericRepository<PrintedEditionOrder>(Context);
+            get
+            {
+                return accauntRepository;
+            }
+        }
+        public IGenericRepository<Author> AuthorRepository
+        {
+            get
+            {
+                return authorRepository;
+            }
+        }
+        public IGenericRepository<Book> BookRepository
+        {
+            get
+            {
+                return bookRepository;
+            }
+        }
+        public IGenericRepository<PrintedEditionOrder> PrintedEditionOrderRepository
+        {
+            get
+            {
+                return PEorderRepository;
+            }
         }
 
-        public ILibraryContext Context { get ; }
-
-        private GenericRepository<Accaunt> accauntRepository;
-        private GenericRepository<Author> authorRepository;
-        private GenericRepository<Book> bookRepository;
-        private GenericRepository<Person> personRepository;
-        private GenericRepository<PrintedEditionOrder> PEorderRepository;
-
-
-        public IGenericRepository<Person> PersonRepository { get; }
-        public IGenericRepository<Accaunt> AccauntRepository { get ; }
-        public IGenericRepository<Author> AuthorRepository { get; }
-        public IGenericRepository<Book> BookRepository { get; }
-        public IGenericRepository<PrintedEditionOrder> PrintedEditionOrderRepository { get; }
         public void Save()
         {
             (Context as LibraryContext).SaveChanges();
         }
 
-    public virtual void Dispose(bool disposing)
+        public virtual void Dispose(bool disposing)
         {
             if (!this.disposed)
             {

@@ -7,7 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DAL.Imp\DAL.Imp.csproj" />
+    <ProjectReference Include="..\BL.Impl\BL.Impl.csproj" />
+    <ProjectReference Include="..\BL.Imp\BL.Abs.csproj" />
   </ItemGroup>
 
 </Project>

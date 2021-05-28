@@ -2,12 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Aspose.Pdf;
+
 
 namespace BL.Abs
 {
     public interface IReportService
     {
-        byte[] CreateReport(DateTime StartDate, DateTime EndDate);
-        IResult PrintReport(byte[] ReportDoc);
+        Document CreateReport(DateTime StartDate, DateTime EndDate);
+        IResult PrintReport(Document ReportDoc, string reportName);
     }
 }

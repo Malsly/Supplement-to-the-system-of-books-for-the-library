@@ -10,6 +10,6 @@ namespace BL.Abs
 {
    public interface IAccauntService
     {
-        PersonDTO LoginAccaunt(string Login, string Password);
+        IDataResult<PersonDTO> LoginAccaunt(string Login, string Password);
     }
 }
