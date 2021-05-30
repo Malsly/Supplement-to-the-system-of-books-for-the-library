@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities.Imp
 {
@@ -10,6 +12,7 @@ namespace Entities.Imp
         public string Name { get ; set ; }
         public string Surname { get ; set ; }
         public DateTime Birthday { get ; set ; }
+        [Key]
         public int Id { get ; set ; }
     }
 }

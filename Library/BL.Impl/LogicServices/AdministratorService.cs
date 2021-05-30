@@ -14,7 +14,7 @@ namespace BL.Impl.LogicServices
 {
     public class AdministratorService : IAdministratorService
     {
-        PersonService personService = new PersonService(new PersonMapper(new UnitOfWork().PersonRepository as GenericRepository<Person>));
+        PersonService personService = new PersonService();
         PersonDTO libraryPerson;
 
         public AdministratorService() 

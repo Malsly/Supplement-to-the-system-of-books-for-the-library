@@ -1,6 +1,7 @@
 ﻿using BL.Imp;
 using DAL.Abs;
 using DAL.Imp;
+using DAL.Imp.Mappers;
 using DTObjects;
 using Entities.Abs;
 using Entities.Imp;
@@ -16,11 +17,11 @@ namespace BL.Impl
         private IGenericRepository<PrintedEditionOrder> rep;
         public IMapper<PrintedEditionOrder, PrintedEditionOrderDTO> Mapper { get; set; }
 
-        public PrintedEditionOrderService(IMapper<PrintedEditionOrder, PrintedEditionOrderDTO> accauntMapper)
+        public PrintedEditionOrderService()
         {
             unitOfWork = new UnitOfWork();
             rep = unitOfWork.PrintedEditionOrderRepository;
-            Mapper = accauntMapper;
+            Mapper = new PrintedEditionOrderMapper(new UnitOfWork().PrintedEditionOrderRepository as GenericRepository<PrintedEditionOrder>);
         }
 
         public IGenericRepository<PrintedEditionOrder> Rep

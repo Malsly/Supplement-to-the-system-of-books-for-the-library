@@ -17,6 +17,14 @@ namespace DAL.Imp
             var conn = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=LibraryDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             optionsBuilder.UseSqlServer(conn);
         }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Accaunt>()
+                .HasOptional(a => a.Person)
+                .WithRequired(ab => ab.Accaunt);
+        }
+
         public System.Data.Entity.DbSet<Person> Persons { get ; set ; }
         public System.Data.Entity.DbSet<Book> Books { get ; set ; }
         public System.Data.Entity.DbSet<Accaunt> Accaunts { get ; set ; }

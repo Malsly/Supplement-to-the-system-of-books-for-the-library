@@ -1,6 +1,7 @@
 ﻿using BL.Imp;
 using DAL.Abs;
 using DAL.Imp;
+using DAL.Imp.Mappers;
 using DTObjects;
 using Entities.Imp;
 using System;
@@ -16,11 +17,11 @@ namespace BL.Impl
         private IGenericRepository<Author> rep;
         public IMapper<Author, AuthorDTO> Mapper { get; set; }
 
-        public AuthorService(IMapper<Author, AuthorDTO> accauntMapper)
+        public AuthorService()
         {
             unitOfWork = new UnitOfWork();
             rep = unitOfWork.AuthorRepository;
-            Mapper = accauntMapper;
+            Mapper = new AuthorMapper(new UnitOfWork().AuthorRepository as GenericRepository<Author>);
         }
 
         public IGenericRepository<Author> Rep

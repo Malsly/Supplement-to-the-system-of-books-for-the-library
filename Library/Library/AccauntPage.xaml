@@ -1,0 +1,57 @@
+﻿<Page x:Class="Library.AccauntPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Library"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AccauntPage">
+    <Grid Background="WhiteSmoke">
+        <ScrollViewer VerticalScrollBarVisibility="Hidden">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Margin="0,5" Content="Login : " VerticalContentAlignment="Center"/>
+                    <Label Grid.Row="0"  x:Name="txtLogin" Content="bindingLogin" Margin="35,1,1,1" Height="35" Width="300" VerticalContentAlignment="Center"/>
+                    <Label Grid.Row="1"  Margin="0,5" Content="Password : " VerticalContentAlignment="Center"/>
+                    <Label Grid.Row="1"  x:Name="txtPassword" Content="bindingPassword" Margin="35,1,1,1" Height="35" Width="300" VerticalContentAlignment="Center"/>
+                </Grid>
+
+                <Grid Grid.Row="1" Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Center"  Source="D:\univer\unic3kurs\Cursova\Профес.практика програм.інж\proj\Library\src\DefaultAccauntAvatar.png">
+                    </Image>
+                    <Button Grid.Row="0" Grid.Column="1" Content="Logout" Margin="11, 35, 11 ,35" x:Name="buttonLogout"/>
+                    <Button Grid.Row="1" Grid.Column="1" Content="ChangePassword" Margin="11, 35, 11 ,35" x:Name="buttonChangePassword"/>
+                </Grid>
+
+                <Label Grid.Row="0" Grid.Column="1" Content="Debt books"/>
+                <ListView Margin="1,30,5,5" Grid.Row="0" Grid.Column="1" x:Name="listDebtBooks" >
+                </ListView>
+                <Label Grid.Row="1" Grid.Column="1" Content="Taken books"/>
+                <ListView Margin="1,30,5,5" Grid.Row="1" Grid.Column="1" x:Name="listTakenBooks">
+                </ListView>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>

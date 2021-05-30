@@ -1,6 +1,7 @@
 ﻿using BL.Imp;
 using DAL.Abs;
 using DAL.Imp;
+using DAL.Imp.Mappers;
 using DTObjects;
 using Entities.Imp;
 using System;
@@ -16,11 +17,11 @@ namespace BL.Impl
         private IGenericRepository<Person> rep;
         public IMapper<Person, PersonDTO> Mapper { get; set; }
 
-        public PersonService(IMapper<Person, PersonDTO> personMapper)
+        public PersonService()
         {
             unitOfWork = new UnitOfWork();
             rep = unitOfWork.PersonRepository;
-            Mapper = personMapper;
+            Mapper = new PersonMapper(new UnitOfWork().PersonRepository as GenericRepository<Person>);
         }
 
         public IGenericRepository<Person> Rep

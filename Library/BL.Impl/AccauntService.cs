@@ -2,6 +2,7 @@
 using BL.Imp;
 using DAL.Abs;
 using DAL.Imp;
+using DAL.Imp.Mappers;
 using DTObjects;
 using Entities.Abs;
 using Entities.Imp;
@@ -18,11 +19,11 @@ namespace BL.Impl
         private IGenericRepository<Accaunt> rep;
         public IMapper<Accaunt, AccauntDTO> Mapper { get; set; }
 
-        public AccauntService(IMapper<Accaunt, AccauntDTO> accauntMapper) 
+        public AccauntService() 
         {
             unitOfWork = new UnitOfWork();
             rep = unitOfWork.AccauntRepository;
-            Mapper = accauntMapper;
+            Mapper = new AccauntMapper(new UnitOfWork().AccauntRepository as GenericRepository<Accaunt>);
         }
 
         public IGenericRepository<Accaunt> Rep

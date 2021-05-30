@@ -14,23 +14,22 @@
                         Id = c.Int(nullable: false, identity: true),
                         Login = c.String(),
                         Password = c.String(),
-                        Person_Id = c.Int(),
                     })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.People", t => t.Person_Id)
-                .Index(t => t.Person_Id);
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.People",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Int(nullable: false),
                         Name = c.String(),
                         Surname = c.String(),
                         Birthday = c.DateTime(nullable: false),
                         Access = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Accaunts", t => t.Id)
+                .Index(t => t.Id);
             
             CreateTable(
                 "dbo.PrintedEditionOrders",
@@ -79,7 +78,7 @@
         
         public override void Down()
         {
-            DropForeignKey("dbo.Accaunts", "Person_Id", "dbo.People");
+            DropForeignKey("dbo.People", "Id", "dbo.Accaunts");
             DropForeignKey("dbo.PrintedEditionOrders", "Person_Id1", "dbo.People");
             DropForeignKey("dbo.PrintedEditionOrders", "Person_Id", "dbo.People");
             DropForeignKey("dbo.PrintedEditionOrders", "PrintedEdition_Id", "dbo.Books");
@@ -88,7 +87,7 @@
             DropIndex("dbo.PrintedEditionOrders", new[] { "Person_Id1" });
             DropIndex("dbo.PrintedEditionOrders", new[] { "Person_Id" });
             DropIndex("dbo.PrintedEditionOrders", new[] { "PrintedEdition_Id" });
-            DropIndex("dbo.Accaunts", new[] { "Person_Id" });
+            DropIndex("dbo.People", new[] { "Id" });
             DropTable("dbo.Authors");
             DropTable("dbo.Books");
             DropTable("dbo.PrintedEditionOrders");
