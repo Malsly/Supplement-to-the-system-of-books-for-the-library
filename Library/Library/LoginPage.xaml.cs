@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -17,16 +15,16 @@ using ViewModels;
 namespace Library
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for LoginPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LoginPage : Page
     {
-        public MainWindow()
+        public LoginPage(Frame frame)
         {
             InitializeComponent();
-            LoginPage loginPage = new LoginPage(this.MainWindowFrame);
-            loginPage.ShowsNavigationUI = false;
-            this.MainWindowFrame.Content = loginPage;
+            AccauntPage accauntPage = new AccauntPage();
+            accauntPage.ShowsNavigationUI = false;
+            DataContext = new LoginViewModel(frame, accauntPage);
         }
     }
 }

@@ -4,64 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Library"
+        xmlns:Pages="clr-namespace:Library;assembly=Library.LoginPage"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition Height="31"/>
-        </Grid.RowDefinitions>
-        <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Hidden">
-            <Grid>
-               
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="15" />
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                </Grid.RowDefinitions>
-                <Label Grid.Row="0" Margin="0,5" Content="Login : " VerticalContentAlignment="Center"/>
-                <TextBox Grid.Row="0" Text="{Binding SignInName, UpdateSourceTrigger=PropertyChanged}"  x:Name="txtLogin" Margin="35,1,1,1" Height="35" Width="300" VerticalContentAlignment="Center"/>
-                <Label Grid.Row="1"  Margin="0,5" Content="Password : " VerticalContentAlignment="Center"/>
-                <TextBox Grid.Row="1" Text="{Binding SignInPassword, UpdateSourceTrigger=PropertyChanged}"  x:Name="txtPassword" Margin="35,1,1,1" Height="35" Width="300" VerticalContentAlignment="Center"/>
-                <Button  Grid.Row="3" Command="{Binding SignInCommand}" CommandParameter="AAA" x:Name="buttonLogin" Margin="55,15,55,15" BorderThickness="3" >
-                    <TextBlock IsEnabled="False" Text="Sign in" FontSize="21" />
-                </Button>
-                <Button  Grid.Row="4" Command="{Binding DeleteAccauntCommand}" x:Name="buttonDelete" Margin="55,15,55,15" BorderThickness="3">
-                    <TextBlock IsEnabled="False" Text="Delete accaunt" FontSize="21"/>
-                </Button>
-            </Grid>
-        </ScrollViewer>
-        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Hidden">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                </Grid.RowDefinitions>
-                <Label Grid.Row="0" Margin="0,5" Content="Login : " VerticalContentAlignment="Center"/>
-                <TextBox Grid.Row="0" Text="{Binding RegistryName, UpdateSourceTrigger=PropertyChanged}" x:Name="txtLoginRegister" Margin="35,1,1,1" Height="35" Width="300" VerticalContentAlignment="Center"/>
-                <Label Grid.Row="1"  Margin="0,5" Content="Password : " VerticalContentAlignment="Center"/>
-                <TextBox Grid.Row="1" Text="{Binding RegistryPassword, UpdateSourceTrigger=PropertyChanged}" x:Name="txtPasswordRegister" Margin="35,1,1,1" Height="35" Width="300" VerticalContentAlignment="Center"/>
-                <Label Grid.Row="2"  Margin="0,5" Content="Name : " VerticalContentAlignment="Center"/>
-                <TextBox Grid.Row="2" Text="{Binding PersonName, UpdateSourceTrigger=PropertyChanged}" x:Name="txtPersonName" Margin="35,1,1,1" Height="35" Width="300" VerticalContentAlignment="Center"/>
-                <Label Grid.Row="3"  Margin="0,5" Content="Surname : " VerticalContentAlignment="Center"/>
-                <TextBox Grid.Row="3" Text="{Binding PersonSurname, UpdateSourceTrigger=PropertyChanged}" x:Name="txtPersonSurname" Margin="35,1,1,1" Height="35" Width="300" VerticalContentAlignment="Center"/>
-                <Label Grid.Row="4"  Margin="0,5" Content="Birthday : " VerticalContentAlignment="Center"/>
-                <DatePicker SelectedDate="{Binding PersonBirthday, UpdateSourceTrigger=PropertyChanged}"  Grid.Row="4" x:Name="datePersonBirthday" Margin="35,1,1,1" Height="35" Text="" Width="300" VerticalContentAlignment="Center"/>
-                <Button  Grid.Row="5" Command="{Binding RegisterCommand}" x:Name="buttonRegister" Margin="55,15,55,15" BorderThickness="3" >
-                    <TextBlock IsEnabled="False" Text="Register" FontSize="21"/>
-                </Button>
-            </Grid>
-        </ScrollViewer>
-        <Label Grid.Row="1" Grid.RowSpan="2"  Content="{Binding AlertMessage}" FontWeight="Bold" Foreground="Brown" FontSize="15" />
-    </Grid>
+    <Window.Content>
+        <Frame x:Name="MainWindowFrame" NavigationUIVisibility="Hidden"/>
+    </Window.Content>
 </Window>

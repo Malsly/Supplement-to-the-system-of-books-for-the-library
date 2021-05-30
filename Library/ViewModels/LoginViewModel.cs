@@ -7,11 +7,16 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace ViewModels
 {
     public class LoginViewModel : INotifyPropertyChanged
     {
+        private Frame frame;
+        private object accauntPage;
+
         private string signInName;
         private string registryName;
         private string signInPassword;
@@ -24,9 +29,11 @@ namespace ViewModels
         private PersonService personService = new PersonService();
         private AccauntService accauntService = new AccauntService();
 
-        public LoginViewModel() 
+        public LoginViewModel(Frame frameMain, object accauntPage1) 
         {
             PersonBirthday = DateTime.Now;
+            frame = frameMain;
+            accauntPage = accauntPage1;
         }
 
         public string SignInName
@@ -121,7 +128,24 @@ namespace ViewModels
                 return signInCommand ??
                   (signInCommand = new RelayCommand(obj =>
                   {
-                      
+                      if (SignInName == null || SignInName == ""
+                        || SignInPassword == null || SignInPassword == "")
+                      {
+                          AlertMessage = "Please fill all sign in fields";
+                          return;
+                      }
+
+                      List<AccauntDTO> accaunts = accauntService.GetAll().Data;
+                      AccauntDTO accauntFromDb = accaunts.FirstOrDefault(pers => pers.Login == SignInName && pers.Password == SignInPassword);
+                      if (accauntFromDb == null)
+                      {
+                          AlertMessage = "Login or password is incorrect";
+                          return;
+                      }
+
+                      AlertMessage = "Sign in success";
+
+                      frame.Content = accauntPage;
                   }));
             }
         }
@@ -133,7 +157,26 @@ namespace ViewModels
                 return deleteAccauntCommand ??
                   (deleteAccauntCommand = new RelayCommand(obj =>
                   {
+                      if (SignInName == null || SignInName == ""
+                      || SignInPassword == null || SignInPassword == "")
+                      {
+                          AlertMessage = "Please fill all sign in fields";
+                          return;
+                      }
+                      List<AccauntDTO> accaunts = accauntService.GetAll().Data;
+                      AccauntDTO accauntFromDb = accaunts.FirstOrDefault(pers => pers.Login == SignInName && pers.Password == SignInPassword);
+                      if (accauntFromDb == null)
+                      {
+                          AlertMessage = "Login or password is incorrect";
+                          return;
+                      }
+                      accauntService.Delete(accauntFromDb);
 
+                      List<AccauntDTO> accaunts1 = accauntService.GetAll().Data;
+
+                      List<PersonDTO> persons1 = personService.GetAll().Data;
+                      
+                      AlertMessage = "Accaunt deleted";
                   }));
             }
         }
@@ -171,6 +214,7 @@ namespace ViewModels
 
                       List<PersonDTO> persons1 = personService.GetAll().Data;
 
+                      AlertMessage = "You accaunt is registred";
                   }));
             }
         }

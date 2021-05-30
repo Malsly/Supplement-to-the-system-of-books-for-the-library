@@ -23,11 +23,14 @@
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
+                        <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Label Grid.Row="0" Margin="0,5" Content="Login : " VerticalContentAlignment="Center"/>
                     <Label Grid.Row="0"  x:Name="txtLogin" Content="bindingLogin" Margin="35,1,1,1" Height="35" Width="300" VerticalContentAlignment="Center"/>
                     <Label Grid.Row="1"  Margin="0,5" Content="Password : " VerticalContentAlignment="Center"/>
                     <Label Grid.Row="1"  x:Name="txtPassword" Content="bindingPassword" Margin="35,1,1,1" Height="35" Width="300" VerticalContentAlignment="Center"/>
+                    <Label Grid.Row="2"  Margin="0,5" Content="Birthday : " VerticalContentAlignment="Center"/>
+                    <Label Grid.Row="2"  x:Name="txtBirthday" Content="bindingBirthday" Margin="35,1,1,1" Height="35" Width="300" VerticalContentAlignment="Center"/>
                 </Grid>
 
                 <Grid Grid.Row="1" Grid.Column="0">
@@ -42,7 +45,7 @@
                     <Image Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Center"  Source="D:\univer\unic3kurs\Cursova\Профес.практика програм.інж\proj\Library\src\DefaultAccauntAvatar.png">
                     </Image>
                     <Button Grid.Row="0" Grid.Column="1" Content="Logout" Margin="11, 35, 11 ,35" x:Name="buttonLogout"/>
-                    <Button Grid.Row="1" Grid.Column="1" Content="ChangePassword" Margin="11, 35, 11 ,35" x:Name="buttonChangePassword"/>
+                    <Button Grid.Row="1" Grid.Column="1" Content="Change Password" Margin="11, 35, 11 ,35" x:Name="buttonChangePassword"/>
                 </Grid>
 
                 <Label Grid.Row="0" Grid.Column="1" Content="Debt books"/>

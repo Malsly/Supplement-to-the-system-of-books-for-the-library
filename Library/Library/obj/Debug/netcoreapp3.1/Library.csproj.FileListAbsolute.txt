@@ -186,3 +186,5 @@ D:\univer\unic3kurs\Cursova\Профес.практика програм.інж\
 D:\univer\unic3kurs\Cursova\Профес.практика програм.інж\proj\Library\Library\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 D:\univer\unic3kurs\Cursova\Профес.практика програм.інж\proj\Library\Library\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 D:\univer\unic3kurs\Cursova\Профес.практика програм.інж\proj\Library\Library\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+D:\univer\unic3kurs\Cursova\Профес.практика програм.інж\proj\Library\Library\obj\Debug\netcoreapp3.1\LoginPage.g.cs
+D:\univer\unic3kurs\Cursova\Профес.практика програм.інж\proj\Library\Library\obj\Debug\netcoreapp3.1\LoginPage.baml
