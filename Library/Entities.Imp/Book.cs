@@ -7,12 +7,17 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities.Imp
 {
-    public class Book: IPrintedEdition
-    {
-        [Key]
+    public class Book : IPrintedEdition
+    {   
         public int Id { get; set; }
         public float Rate { get; set; }
         public string Name { get; set; }
-        public List<Author> Authors { get; set; }
+
+        public virtual ICollection<Author> Authors { get; set; }
+
+        
+        [Key, ForeignKey("PrintedEditionOrder")]
+        public int? PrintedEditionOrderID { get; set; }
+        public virtual PrintedEditionOrder PrintedEditionOrder { get; set; }
     }
 }

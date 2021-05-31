@@ -17,6 +17,8 @@
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition Height="31"/>
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0" Grid.Column="0">
@@ -25,15 +27,15 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Label Grid.Row="0" Margin="0,5" Content="Login : " VerticalContentAlignment="Center"/>
-                    <Label Grid.Row="0"  x:Name="txtLogin" Content="bindingLogin" Margin="35,1,1,1" Height="35" Width="300" VerticalContentAlignment="Center"/>
-                    <Label Grid.Row="1"  Margin="0,5" Content="Password : " VerticalContentAlignment="Center"/>
-                    <Label Grid.Row="1"  x:Name="txtPassword" Content="bindingPassword" Margin="35,1,1,1" Height="35" Width="300" VerticalContentAlignment="Center"/>
-                    <Label Grid.Row="2"  Margin="0,5" Content="Birthday : " VerticalContentAlignment="Center"/>
-                    <Label Grid.Row="2"  x:Name="txtBirthday" Content="bindingBirthday" Margin="35,1,1,1" Height="35" Width="300" VerticalContentAlignment="Center"/>
+                    <Label Grid.Row="0" Margin="0,5" Content="Name: " VerticalContentAlignment="Center"/>
+                    <Label Grid.Row="0"  x:Name="txtLogin" Content="{Binding Accaunt.Person.Name}" Margin="35,1,1,1" Height="35" Width="300" VerticalContentAlignment="Center"/>
+                    <Label Grid.Row="1"  Margin="0,5" Content="Surname: " VerticalContentAlignment="Center"/>
+                    <Label Grid.Row="1"  x:Name="txtSurname" Content="{Binding Accaunt.Person.Surname}" Margin="35,1,1,1" Height="35" Width="300" VerticalContentAlignment="Center"/>
+                    <Label Grid.Row="2"  Margin="0,5" Content="Birthday: " VerticalContentAlignment="Center"/>
+                    <Label Grid.Row="2"  x:Name="txtBirthday" Content="{Binding Accaunt.Person.Birthday}" Margin="35,1,1,1" Height="35" Width="300" VerticalContentAlignment="Center"/>
                 </Grid>
 
-                <Grid Grid.Row="1" Grid.Column="0">
+                <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="0">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
@@ -42,19 +44,23 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Image Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Center"  Source="D:\univer\unic3kurs\Cursova\Профес.практика програм.інж\proj\Library\src\DefaultAccauntAvatar.png">
-                    </Image>
-                    <Button Grid.Row="0" Grid.Column="1" Content="Logout" Margin="11, 35, 11 ,35" x:Name="buttonLogout"/>
-                    <Button Grid.Row="1" Grid.Column="1" Content="Change Password" Margin="11, 35, 11 ,35" x:Name="buttonChangePassword"/>
+                    <Button Grid.Row="0" Grid.Column="0" Content="Logout" Margin="11, 35, 11 ,35" x:Name="buttonLogout"/>
+                    <Button Grid.Row="0" Grid.Column="1" Content="Return Book" Margin="11, 35, 11 ,35" x:Name="buttonReturnBook"/>
+                    <Button Grid.Row="1" Grid.Column="0" Content="Get book" Margin="11, 35, 11 ,35" x:Name="buttonGetBook"/>
+                    <Button Grid.Row="1" Grid.Column="1" Content="Spoil book" Margin="11, 35, 11 ,35" x:Name="buttonSpoilBook"/>
                 </Grid>
 
-                <Label Grid.Row="0" Grid.Column="1" Content="Debt books"/>
-                <ListView Margin="1,30,5,5" Grid.Row="0" Grid.Column="1" x:Name="listDebtBooks" >
-                </ListView>
-                <Label Grid.Row="1" Grid.Column="1" Content="Taken books"/>
-                <ListView Margin="1,30,5,5" Grid.Row="1" Grid.Column="1" x:Name="listTakenBooks">
-                </ListView>
+                <Label Grid.Row="0" Grid.Column="1" Content="Debt books:"/>
+                <DataGrid ItemsSource="{Binding Accaunt.Person.BookDebt}" SelectedItem="{Binding SelectedBookDebt}" Margin="1,30,5,5" Grid.Row="0" Grid.Column="1" x:Name="listDebtBooks" >
+                </DataGrid>
+                <Label Grid.Row="1" Grid.Column="1" Content="Taken books:"/>
+                <DataGrid ItemsSource="{Binding Accaunt.Person.TakenBook}" SelectedItem="{Binding SelectedTakenBook}" Margin="1,30,5,5" Grid.Row="1" Grid.Column="1" x:Name="listTakenBooks">
+                </DataGrid>
+                <Label Grid.Row="2" Grid.Column="1" Content="Available books:"/>
+                <DataGrid ItemsSource="{Binding AvailableBooks}" SelectedItem="{Binding SelectedAvailableBook}" Margin="1,30,5,5" Grid.Row="2" Grid.Column="1" x:Name="listAvailableBooks">
+                </DataGrid>
             </Grid>
         </ScrollViewer>
+        <Label Grid.Row="3" Grid.RowSpan="1"  Content="{Binding AlertMessage}" FontWeight="Bold" Foreground="Brown" FontSize="15" />
     </Grid>
 </Page>

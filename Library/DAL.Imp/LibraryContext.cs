@@ -21,8 +21,34 @@ namespace DAL.Imp
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Accaunt>()
-                .HasOptional(a => a.Person)
-                .WithRequired(ab => ab.Accaunt);
+                .HasOptional<Person>(a => a.Person)
+                .WithRequired(ab => ab.Accaunt)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<PrintedEditionOrder>()
+               .HasOptional(s => s.Book) 
+               .WithRequired(ad => ad.PrintedEditionOrder);
+
+            modelBuilder.Entity<PrintedEditionOrder>()
+               .HasRequired<Person>(s => s.PersonDebtOrder)
+               .WithMany(g => g.BookDebt)
+               .HasForeignKey<int?>(s => s.PersonDebtOrderId);
+
+            modelBuilder.Entity<PrintedEditionOrder>()
+               .HasRequired<Person>(s => s.PersonTakenOrder)
+               .WithMany(g => g.TakenBook)
+               .HasForeignKey<int?>(s => s.PersonTakenOrderId).WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Book>()
+               .HasMany<Author>(s => s.Authors)
+               .WithMany(c => c.Books)
+               .Map(cs =>
+               {
+                   cs.MapLeftKey("BookRefId");
+                   cs.MapRightKey("AuthorRefId");
+                   cs.ToTable("BookAuthor");
+               });
+
         }
 
         public System.Data.Entity.DbSet<Person> Persons { get ; set ; }

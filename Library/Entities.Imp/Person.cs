@@ -16,9 +16,11 @@ namespace Entities.Imp
         public string Surname { get; set; }
         public DateTime Birthday { get; set; }
         public Access Access { get; set; }
-        public List<PrintedEditionOrder> BookDebt { get; set; }
-        public List<PrintedEditionOrder> TakenBook { get; set; }
 
-        public Accaunt Accaunt { get; set; }
+        public virtual Accaunt Accaunt { get; set; }
+
+        public ICollection<PrintedEditionOrder> BookDebt { get; set; }
+        public ICollection<PrintedEditionOrder> TakenBook { get; set; }
+
     }
 }

@@ -38,27 +38,27 @@
                         Id = c.Int(nullable: false, identity: true),
                         StartDate = c.DateTime(nullable: false),
                         EndDate = c.DateTime(nullable: false),
-                        PrintedEdition_Id = c.Int(),
-                        Person_Id = c.Int(),
-                        Person_Id1 = c.Int(),
+                        PersonDebtOrderId = c.Int(nullable: false),
+                        PersonTakenOrderId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Books", t => t.PrintedEdition_Id)
-                .ForeignKey("dbo.People", t => t.Person_Id)
-                .ForeignKey("dbo.People", t => t.Person_Id1)
-                .Index(t => t.PrintedEdition_Id)
-                .Index(t => t.Person_Id)
-                .Index(t => t.Person_Id1);
+                .ForeignKey("dbo.People", t => t.PersonDebtOrderId, cascadeDelete: true)
+                .ForeignKey("dbo.People", t => t.PersonTakenOrderId)
+                .Index(t => t.PersonDebtOrderId)
+                .Index(t => t.PersonTakenOrderId);
             
             CreateTable(
                 "dbo.Books",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        PrintedEditionOrderID = c.Int(nullable: false),
+                        Id = c.Int(nullable: false),
                         Rate = c.Single(nullable: false),
                         Name = c.String(),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.PrintedEditionOrderID)
+                .ForeignKey("dbo.PrintedEditionOrders", t => t.PrintedEditionOrderID)
+                .Index(t => t.PrintedEditionOrderID);
             
             CreateTable(
                 "dbo.Authors",
@@ -68,26 +68,39 @@
                         Name = c.String(),
                         Surname = c.String(),
                         Birthday = c.DateTime(nullable: false),
-                        Book_Id = c.Int(),
                     })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Books", t => t.Book_Id)
-                .Index(t => t.Book_Id);
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.BookAuthor",
+                c => new
+                    {
+                        BookRefId = c.Int(nullable: false),
+                        AuthorRefId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.BookRefId, t.AuthorRefId })
+                .ForeignKey("dbo.Books", t => t.BookRefId, cascadeDelete: true)
+                .ForeignKey("dbo.Authors", t => t.AuthorRefId, cascadeDelete: true)
+                .Index(t => t.BookRefId)
+                .Index(t => t.AuthorRefId);
             
         }
         
         public override void Down()
         {
             DropForeignKey("dbo.People", "Id", "dbo.Accaunts");
-            DropForeignKey("dbo.PrintedEditionOrders", "Person_Id1", "dbo.People");
-            DropForeignKey("dbo.PrintedEditionOrders", "Person_Id", "dbo.People");
-            DropForeignKey("dbo.PrintedEditionOrders", "PrintedEdition_Id", "dbo.Books");
-            DropForeignKey("dbo.Authors", "Book_Id", "dbo.Books");
-            DropIndex("dbo.Authors", new[] { "Book_Id" });
-            DropIndex("dbo.PrintedEditionOrders", new[] { "Person_Id1" });
-            DropIndex("dbo.PrintedEditionOrders", new[] { "Person_Id" });
-            DropIndex("dbo.PrintedEditionOrders", new[] { "PrintedEdition_Id" });
+            DropForeignKey("dbo.PrintedEditionOrders", "PersonTakenOrderId", "dbo.People");
+            DropForeignKey("dbo.PrintedEditionOrders", "PersonDebtOrderId", "dbo.People");
+            DropForeignKey("dbo.Books", "PrintedEditionOrderID", "dbo.PrintedEditionOrders");
+            DropForeignKey("dbo.BookAuthor", "AuthorRefId", "dbo.Authors");
+            DropForeignKey("dbo.BookAuthor", "BookRefId", "dbo.Books");
+            DropIndex("dbo.BookAuthor", new[] { "AuthorRefId" });
+            DropIndex("dbo.BookAuthor", new[] { "BookRefId" });
+            DropIndex("dbo.Books", new[] { "PrintedEditionOrderID" });
+            DropIndex("dbo.PrintedEditionOrders", new[] { "PersonTakenOrderId" });
+            DropIndex("dbo.PrintedEditionOrders", new[] { "PersonDebtOrderId" });
             DropIndex("dbo.People", new[] { "Id" });
+            DropTable("dbo.BookAuthor");
             DropTable("dbo.Authors");
             DropTable("dbo.Books");
             DropTable("dbo.PrintedEditionOrders");

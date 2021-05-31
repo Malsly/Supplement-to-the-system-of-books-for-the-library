@@ -26,14 +26,91 @@ namespace ViewModels
         private string alertMessage;
         private DateTime personBirthday;
 
-        private PersonService personService = new PersonService();
+        private AccauntDTO accaunt = new AccauntDTO();
+
         private AccauntService accauntService = new AccauntService();
+        private PrintedEditionOrderService printedEditionOrderService = new PrintedEditionOrderService();
+
 
         public LoginViewModel(Frame frameMain, object accauntPage1) 
         {
+            //PersonDTO libraryPerson = new PersonDTO()
+            //{
+            //    Access = Access.Library,
+            //    Name = "Library",
+            //    Surname = "Library",
+            //    Birthday = DateTime.Now,
+            //    BookDebt = new List<PrintedEditionOrderDTO>(),
+            //    TakenBook = new List<PrintedEditionOrderDTO>()
+            //};
+            //AccauntDTO libraryAccaunt = new AccauntDTO() { Login = "Library", Password = "Library", Person = libraryPerson };
+            //accauntService.Add(libraryAccaunt);
+
+            AccauntDTO libraryAccauntFromDB = accauntService.GetAll().Data.Find(a => a.Person.Access == Access.Library);
+
+            AuthorDTO ArmandoLucasCorrea = new AuthorDTO() { Name = "Armando", Surname = "Lucas", Birthday = DateTime.Now };
+            AuthorDTO JessKidd = new AuthorDTO() { Name = "Jess", Surname = "Kidd", Birthday = DateTime.Now };
+            AuthorDTO MarthaMcPhee = new AuthorDTO() { Name = "Martha", Surname = "McPhee", Birthday = DateTime.Now };
+            AuthorDTO MeganMiranda = new AuthorDTO() { Name = "Megan", Surname = "Miranda", Birthday = DateTime.Now };
+            AuthorDTO HelenPhillips = new AuthorDTO() { Name = "Helen", Surname = "Phillips", Birthday = DateTime.Now };
+            AuthorDTO KristinHarmel = new AuthorDTO() { Name = "Kristin", Surname = "Harmel", Birthday = DateTime.Now };
+
+            BookDTO Daughter = new BookDTO() { Name = "The Daughter's Tale", Rate = 4.5f, Authors = new List<AuthorDTO>() { ArmandoLucasCorrea } };
+            BookDTO Himself = new BookDTO() { Name = "Himself", Rate = 4.1f, Authors = new List<AuthorDTO>() { JessKidd } };
+            BookDTO GorgeousLies = new BookDTO() { Name = "Gorgeous Lies", Rate = 3.5f, Authors = new List<AuthorDTO>() { JessKidd, MarthaMcPhee } };
+            BookDTO Winemaker = new BookDTO() { Name = "The Winemaker’s Wife", Rate = 4.8f, Authors = new List<AuthorDTO>() { JessKidd } };
+            BookDTO TheDinnerList = new BookDTO() { Name = "The Dinner List", Rate = 1.9f, Authors = new List<AuthorDTO>() { KristinHarmel } };
+            BookDTO NormalPeople = new BookDTO() { Name = "Normal People", Rate = 4.9f, Authors = new List<AuthorDTO>() { HelenPhillips, MeganMiranda } };
+            BookDTO Kafka = new BookDTO() { Name = "Kafka on the Shore", Rate = 3.3f, Authors = new List<AuthorDTO>() { ArmandoLucasCorrea, KristinHarmel, JessKidd } };
+
+            List<BookDTO> bookDTOs = new List<BookDTO>()
+            {
+                Daughter,
+                Himself,
+                GorgeousLies,
+                Kafka,
+                Winemaker,
+                TheDinnerList,
+                NormalPeople,
+                NormalPeople,
+                Kafka,
+                Winemaker,
+                Himself,
+                GorgeousLies,
+                Daughter
+            };
+
+            foreach (BookDTO bookDTO in bookDTOs)
+            {
+                printedEditionOrderService.Add(new PrintedEditionOrderDTO()
+                {
+                    PrintedEdition = bookDTO,
+                    StartDate = DateTime.Now,
+                    EndDate = DateTime.Now,
+                });
+            }
+
+            List<PrintedEditionOrderDTO> printedEditionOrderDTOs = printedEditionOrderService.GetAll().Data;
+
+            libraryAccauntFromDB.Person.TakenBook = printedEditionOrderDTOs;
+            accauntService.Update(libraryAccauntFromDB);
+
+            AccauntDTO libraryAccauntFromDBUpdated = accauntService.GetAll().Data.Find(a => a.Person.Access == Access.Library);
+
+
             PersonBirthday = DateTime.Now;
             frame = frameMain;
             accauntPage = accauntPage1;
+        }
+
+        public AccauntDTO Accaunt
+        {
+            get { return accaunt; }
+            set
+            {
+                accaunt = value;
+                OnPropertyChanged("Accaunt");
+            }
         }
 
         public string SignInName
@@ -144,7 +221,7 @@ namespace ViewModels
                       }
 
                       AlertMessage = "Sign in success";
-
+                      (accauntPage as Page).DataContext = new AccauntViewModel(frame, accauntFromDb);
                       frame.Content = accauntPage;
                   }));
             }
@@ -171,10 +248,6 @@ namespace ViewModels
                           return;
                       }
                       accauntService.Delete(accauntFromDb);
-
-                      List<AccauntDTO> accaunts1 = accauntService.GetAll().Data;
-
-                      List<PersonDTO> persons1 = personService.GetAll().Data;
                       
                       AlertMessage = "Accaunt deleted";
                   }));
@@ -209,10 +282,6 @@ namespace ViewModels
                       PersonDTO person = new PersonDTO() { Name = PersonName, Surname = PersonSurname, Access = Access.Reader, Birthday = PersonBirthday };
                       AccauntDTO accaunt = new AccauntDTO() { Login = RegistryName, Password = RegistryPassword, Person = person };
                       accauntService.Add(accaunt);
-
-                      List<AccauntDTO> accaunts1 = accauntService.GetAll().Data;
-
-                      List<PersonDTO> persons1 = personService.GetAll().Data;
 
                       AlertMessage = "You accaunt is registred";
                   }));

@@ -27,7 +27,7 @@ namespace DAL.Imp.Mappers
             printedEditionOrder.Id = dto.Id;
             printedEditionOrder.EndDate = dto.EndDate;
             printedEditionOrder.StartDate = dto.StartDate;
-            printedEditionOrder.PrintedEdition = EntityDTOConverter.BookDTOtoBook(dto.PrintedEdition);
+            printedEditionOrder.Book = EntityDTOConverter.BookDTOtoBook(dto.PrintedEdition);
             return printedEditionOrder;
         }
 

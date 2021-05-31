@@ -203,7 +203,7 @@ namespace DAL.Imp
                 {
                     Id = printedEditionOrderDTO.Id,
                     EndDate = printedEditionOrderDTO.EndDate,
-                    PrintedEdition = BookDTOtoBook(printedEditionOrderDTO.PrintedEdition),
+                    Book = BookDTOtoBook(printedEditionOrderDTO.PrintedEdition),
                     StartDate = printedEditionOrderDTO.StartDate,
                 };
             }
@@ -212,7 +212,7 @@ namespace DAL.Imp
             {
                 Id = printedEditionOrderDTO.Id,
                 EndDate = printedEditionOrderDTO.EndDate,
-                PrintedEdition = null,
+                Book = null,
                 StartDate = printedEditionOrderDTO.StartDate,
             };
         }
@@ -222,13 +222,13 @@ namespace DAL.Imp
 
             if (PEOrderInDB != null)
             {
-                if (PEOrderInDB.PrintedEdition != null)
+                if (PEOrderInDB.Book != null)
                 {
                     return new PrintedEditionOrderDTO()
                     {
                         Id = PEOrderInDB.Id,
                         EndDate = PEOrderInDB.EndDate,
-                        PrintedEdition = BooktoBookDTO(PEOrderInDB.PrintedEdition),
+                        PrintedEdition = BooktoBookDTO(PEOrderInDB.Book),
                         StartDate = PEOrderInDB.StartDate,
                     };
                 }
@@ -242,13 +242,13 @@ namespace DAL.Imp
                 };
             }
 
-            if (printedEditionOrderDTO.PrintedEdition != null)
+            if (printedEditionOrderDTO.Book != null)
             {
                 return new PrintedEditionOrderDTO()
                 {
                     Id = printedEditionOrderDTO.Id,
                     EndDate = printedEditionOrderDTO.EndDate,
-                    PrintedEdition = BooktoBookDTO(printedEditionOrderDTO.PrintedEdition),
+                    PrintedEdition = BooktoBookDTO(printedEditionOrderDTO.Book),
                     StartDate = printedEditionOrderDTO.StartDate,
                 };
             }

@@ -9,10 +9,16 @@ namespace Entities.Imp
 {
     public class PrintedEditionOrder : IEntity
     {
-        [Key]
         public int Id { get; set; }
-        public Book PrintedEdition { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+
+        public int? PersonDebtOrderId { get; set; }
+        public Person PersonDebtOrder { get; set; }
+        public int? PersonTakenOrderId { get; set; }
+        public Person PersonTakenOrder { get; set; }
+
+
+        public virtual Book Book { get; set; }
     }
 }

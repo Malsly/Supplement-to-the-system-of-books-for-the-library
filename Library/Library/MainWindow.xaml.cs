@@ -25,7 +25,6 @@ namespace Library
         {
             InitializeComponent();
             LoginPage loginPage = new LoginPage(this.MainWindowFrame);
-            loginPage.ShowsNavigationUI = false;
             this.MainWindowFrame.Content = loginPage;
         }
     }

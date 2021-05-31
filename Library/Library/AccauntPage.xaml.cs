@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTObjects;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -10,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ViewModels;
 
 namespace Library
 {
@@ -18,9 +20,10 @@ namespace Library
     /// </summary>
     public partial class AccauntPage : Page
     {
-        public AccauntPage()
+        public AccauntPage(AccauntViewModel accauntViewModel)
         {
             InitializeComponent();
+            DataContext = accauntViewModel;
         }
     }
 }

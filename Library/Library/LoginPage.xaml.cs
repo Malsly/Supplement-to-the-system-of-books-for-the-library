@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTObjects;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -22,8 +23,7 @@ namespace Library
         public LoginPage(Frame frame)
         {
             InitializeComponent();
-            AccauntPage accauntPage = new AccauntPage();
-            accauntPage.ShowsNavigationUI = false;
+            AccauntPage accauntPage = new AccauntPage(new AccauntViewModel(frame, new AccauntDTO()));
             DataContext = new LoginViewModel(frame, accauntPage);
         }
     }
