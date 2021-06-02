@@ -5,6 +5,7 @@ using System.Text;
 using Entities.Abs;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Collections.ObjectModel;
 
 namespace DTObjects
 {
@@ -15,8 +16,8 @@ namespace DTObjects
         private string surname;
         private DateTime birthday;
         private Access access;
-        private List<PrintedEditionOrderDTO> bookDebt;
-        private List<PrintedEditionOrderDTO> takenBook;
+        private ObservableCollection<PrintedEditionOrderDTO> bookDebt;
+        private ObservableCollection<PrintedEditionOrderDTO> takenBook;
 
         public string Name
         {
@@ -59,7 +60,7 @@ namespace DTObjects
             }
         }
 
-        public List<PrintedEditionOrderDTO> BookDebt
+        public ObservableCollection<PrintedEditionOrderDTO> BookDebt
         {
             get { return bookDebt; }
             set
@@ -69,7 +70,7 @@ namespace DTObjects
             }
         }
 
-        public List<PrintedEditionOrderDTO> TakenBook
+        public ObservableCollection<PrintedEditionOrderDTO> TakenBook
         {
             get { return takenBook; }
             set

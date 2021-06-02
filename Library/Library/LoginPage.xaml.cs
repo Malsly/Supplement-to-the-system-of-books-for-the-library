@@ -23,8 +23,8 @@ namespace Library
         public LoginPage(Frame frame)
         {
             InitializeComponent();
-            AccauntPage accauntPage = new AccauntPage(new AccauntViewModel(frame, new AccauntDTO()));
-            DataContext = new LoginViewModel(frame, accauntPage);
+            AccauntPage accauntPage = new AccauntPage(new AccauntViewModel(frame, new AccauntDTO(), this));
+            DataContext = new LoginViewModel(frame, accauntPage, this);
         }
     }
 }

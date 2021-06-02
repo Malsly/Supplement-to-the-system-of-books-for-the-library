@@ -41,5 +41,5 @@ D:\univer\unic3kurs\Cursova\Профес.практика програм.інж\
 D:\univer\unic3kurs\Cursova\Профес.практика програм.інж\proj\Library\DAL.Imp\bin\Debug\netcoreapp3.1\Entities.Imp.pdb
 D:\univer\unic3kurs\Cursova\Профес.практика програм.інж\proj\Library\DAL.Imp\obj\Debug\netcoreapp3.1\DAL.Imp.csproj.CopyComplete
 D:\univer\unic3kurs\Cursova\Профес.практика програм.інж\proj\Library\DAL.Imp\obj\Debug\netcoreapp3.1\DAL.Imp.genruntimeconfig.cache
-D:\univer\unic3kurs\Cursova\Профес.практика програм.інж\proj\Library\DAL.Imp\obj\Debug\netcoreapp3.1\DAL.Imp.Migrations.InitialCreate.resources
+D:\univer\unic3kurs\Cursova\Профес.практика програм.інж\proj\Library\DAL.Imp\obj\Debug\netcoreapp3.1\DAL.Imp.Migrations.InitialCommit.resources
 D:\univer\unic3kurs\Cursova\Профес.практика програм.інж\proj\Library\DAL.Imp\obj\Debug\netcoreapp3.1\DAL.Imp.csproj.GenerateResource.cache

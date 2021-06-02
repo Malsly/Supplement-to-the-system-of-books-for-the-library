@@ -8,59 +8,261 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AccauntPage">
     <Grid Background="WhiteSmoke">
-        <ScrollViewer VerticalScrollBarVisibility="Hidden">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="31"/>
+            </Grid.RowDefinitions>
+        
+
+            <Grid Grid.Row="0" Grid.Column="0">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
-                    <RowDefinition Height="31"/>
                 </Grid.RowDefinitions>
+                <Label Grid.Row="0" Margin="0,5" Content="Name: " VerticalContentAlignment="Center"/>
+                <Label Grid.Row="0"  x:Name="txtLogin" Content="{Binding Accaunt.Person.Name}" Margin="35,1,1,1" Height="35" Width="300" VerticalContentAlignment="Center"/>
+                <Label Grid.Row="1"  Margin="0,5" Content="Surname: " VerticalContentAlignment="Center"/>
+                <Label Grid.Row="1"  x:Name="txtSurname" Content="{Binding Accaunt.Person.Surname}" Margin="35,1,1,1" Height="35" Width="300" VerticalContentAlignment="Center"/>
+                <Label Grid.Row="2"  Margin="0,5" Content="Birthday: " VerticalContentAlignment="Center"/>
+                <Label Grid.Row="2"  x:Name="txtBirthday" Content="{Binding Accaunt.Person.Birthday}" Margin="35,1,1,1" Height="35" Width="300" VerticalContentAlignment="Center"/>
+            </Grid>
 
-                <Grid Grid.Row="0" Grid.Column="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Label Grid.Row="0" Margin="0,5" Content="Name: " VerticalContentAlignment="Center"/>
-                    <Label Grid.Row="0"  x:Name="txtLogin" Content="{Binding Accaunt.Person.Name}" Margin="35,1,1,1" Height="35" Width="300" VerticalContentAlignment="Center"/>
-                    <Label Grid.Row="1"  Margin="0,5" Content="Surname: " VerticalContentAlignment="Center"/>
-                    <Label Grid.Row="1"  x:Name="txtSurname" Content="{Binding Accaunt.Person.Surname}" Margin="35,1,1,1" Height="35" Width="300" VerticalContentAlignment="Center"/>
-                    <Label Grid.Row="2"  Margin="0,5" Content="Birthday: " VerticalContentAlignment="Center"/>
-                    <Label Grid.Row="2"  x:Name="txtBirthday" Content="{Binding Accaunt.Person.Birthday}" Margin="35,1,1,1" Height="35" Width="300" VerticalContentAlignment="Center"/>
-                </Grid>
+            <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+            </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
 
-                <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
+            <Popup Width="202" Height="202" x:Name="addBookPopUp"  IsOpen="False">
+                <Grid Background="WhiteSmoke">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Row="0" Grid.Column="0" Content="Logout" Margin="11, 35, 11 ,35" x:Name="buttonLogout"/>
-                    <Button Grid.Row="0" Grid.Column="1" Content="Return Book" Margin="11, 35, 11 ,35" x:Name="buttonReturnBook"/>
-                    <Button Grid.Row="1" Grid.Column="0" Content="Get book" Margin="11, 35, 11 ,35" x:Name="buttonGetBook"/>
-                    <Button Grid.Row="1" Grid.Column="1" Content="Spoil book" Margin="11, 35, 11 ,35" x:Name="buttonSpoilBook"/>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Button Click="buttonCloseAddBookPopup_Click"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Close form" x:Name="buttonCloseAddBookPopup"/>
+                    <Label Grid.Row="1" Grid.Column="0" Content="Author name: "/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="Text"/>
+                    <Label Grid.Row="2" Grid.Column="0" Content="Author surname: "/>
+                    <TextBlock Grid.Row="2" Grid.Column="1" Text="Text"/>
+                    <Label Grid.Row="3" Grid.Column="0" Content="Author birthday: "/>
+                    <TextBlock Grid.Row="3" Grid.Column="1" Text="Text"/>
+                    <Label Grid.Row="4" Grid.Column="0" Content="Book name: "/>
+                    <TextBlock Grid.Row="4" Grid.Column="1" Text="Text"/>
+                    <Label Grid.Row="5" Grid.Column="0" Content="Book rate: "/>
+                    <TextBlock Grid.Row="5" Grid.Column="1" Text="Text"/>
+                    <Button Grid.Row="6" Grid.ColumnSpan="2" Grid.Column="0" Content="Add book"  x:Name="buttonAddBookPopup" Command="{Binding AddBookCommand}"/>
                 </Grid>
-
-                <Label Grid.Row="0" Grid.Column="1" Content="Debt books:"/>
-                <DataGrid ItemsSource="{Binding Accaunt.Person.BookDebt}" SelectedItem="{Binding SelectedBookDebt}" Margin="1,30,5,5" Grid.Row="0" Grid.Column="1" x:Name="listDebtBooks" >
-                </DataGrid>
-                <Label Grid.Row="1" Grid.Column="1" Content="Taken books:"/>
-                <DataGrid ItemsSource="{Binding Accaunt.Person.TakenBook}" SelectedItem="{Binding SelectedTakenBook}" Margin="1,30,5,5" Grid.Row="1" Grid.Column="1" x:Name="listTakenBooks">
-                </DataGrid>
-                <Label Grid.Row="2" Grid.Column="1" Content="Available books:"/>
-                <DataGrid ItemsSource="{Binding AvailableBooks}" SelectedItem="{Binding SelectedAvailableBook}" Margin="1,30,5,5" Grid.Row="2" Grid.Column="1" x:Name="listAvailableBooks">
-                </DataGrid>
+            </Popup>
+                
+            <Button Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Content="Logout" Margin="11, 45, 11 ,45" x:Name="buttonLogout" Command="{Binding LogoutCommand}"/>
+            <Button Grid.Row="0" Grid.Column="1" Content="Return Book" Margin="11, 15, 11 ,15" x:Name="buttonReturnBook" Command="{Binding ReturnBookCommand}" Visibility="{Binding ReturnBookVisibility}"/>
+            <Button Grid.Row="1" Grid.Column="1" Content="Add Book" Margin="11, 15, 11 ,15" x:Name="buttonAddBook" Click="buttonAddBook_Click" Visibility="{Binding AddBookVisibility}"/>
+            <Button Grid.Row="2" Grid.RowSpan="2"  Grid.Column="0" Content="Get book" Margin="11, 45, 11 ,45" x:Name="buttonGetBook" Command="{Binding GetBookCommand}" Visibility="{Binding GetBookVisibility}"/>
+            <Button Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" Content="Spoil book" Margin="11, 45, 11 ,45" x:Name="buttonSpoilBook" Command="{Binding SpoilBookCommand}" />
             </Grid>
-        </ScrollViewer>
-        <Label Grid.Row="3" Grid.RowSpan="1"  Content="{Binding AlertMessage}" FontWeight="Bold" Foreground="Brown" FontSize="15" />
+
+
+        <Popup Grid.Row="2" Grid.Column="1" x:Name="authorPopUp"  IsOpen="False">
+            <StackPanel Background="WhiteSmoke">
+                <Label Content="{Binding Name}"/>
+                <Label Content="{Binding Surname}"/>
+                <Label Content="{Binding Birthday}"/>
+            </StackPanel>
+        </Popup>
+        
+        <Label Grid.Row="0" Grid.Column="1" Content="Debt books:"/>
+            <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" Grid.Row="0" Grid.Column="1">
+            <DataGrid LoadingRow="DataGrid_LoadingRow" AutoGenerateColumns="False" ItemsSource="{Binding DeptBooks}" SelectedItem="{Binding SelectedBookDebt}" Margin="1,30,5,5"  x:Name="listDebtBooks" IsReadOnly="True" >
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Name">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding PrintedEdition.Name}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Rating">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding PrintedEdition.Rate}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Authors">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ListView ItemsSource="{Binding PrintedEdition.Authors}" >
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="ListViewItem">
+                                            <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_PreviewMouseLeftButtonDown" />
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+                                    <ListView.ItemTemplate>
+                                        <ItemContainerTemplate>
+                                            <TextBlock>
+                                                <TextBlock.Text>
+                                                    <MultiBinding StringFormat="{}{0} {1}">
+                                                        <Binding Path="Name" />
+                                                        <Binding Path="Surname" />
+                                                    </MultiBinding>
+                                                </TextBlock.Text>
+                                            </TextBlock>
+                                        </ItemContainerTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <!--<DataGridTemplateColumn Header="StartDate">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding StartDate}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="EndDate">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding EndDate}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>-->
+                </DataGrid.Columns>    
+            </DataGrid>
+            </ScrollViewer>
+
+            <Label Grid.Row="1" Grid.Column="1" Content="Taken books:"/>
+            <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" Grid.Row="1" Grid.Column="1">
+            <DataGrid LoadingRow="DataGrid_LoadingRow" AutoGenerateColumns="False"  ItemsSource="{Binding TakenBooks}" SelectedItem="{Binding SelectedTakenBook}" Margin="1,30,5,5" x:Name="listTakenBooks" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Name">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding PrintedEdition.Name}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Rating">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding PrintedEdition.Rate}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Authors">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ListView ItemsSource="{Binding PrintedEdition.Authors}" >
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="ListViewItem">
+                                            <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_PreviewMouseLeftButtonDown" />
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+                                    <ListView.ItemTemplate>
+                                        <ItemContainerTemplate>
+                                            <TextBlock>
+                                                <TextBlock.Text>
+                                                    <MultiBinding StringFormat="{}{0} {1}">
+                                                        <Binding Path="Name" />
+                                                        <Binding Path="Surname" />
+                                                    </MultiBinding>
+                                                </TextBlock.Text>
+                                            </TextBlock>
+                                        </ItemContainerTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <!--<DataGridTemplateColumn Header="StartDate">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding StartDate}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="EndDate">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding EndDate}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>-->
+                </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+
+        
+        <Label Grid.Row="2" Grid.Column="1" Content="Available books:"/>
+        <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" Grid.Row="2" Grid.Column="1">
+            <DataGrid LoadingRow="DataGrid_LoadingRow" AutoGenerateColumns="False" ItemsSource="{Binding AvailableBooks}" SelectedItem="{Binding SelectedAvailableBook}" Margin="1,30,5,5" x:Name="listAvailableBooks" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Name">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding PrintedEdition.Name}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Rating">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding PrintedEdition.Rate}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Authors">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ListView ItemsSource="{Binding PrintedEdition.Authors}" >
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="ListViewItem">
+                                            <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_PreviewMouseLeftButtonDown" />
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+                                    <ListView.ItemTemplate>
+                                        <ItemContainerTemplate>
+                                            <StackPanel>
+                                                <TextBlock>
+                                                    <TextBlock.Text>
+                                                        <MultiBinding StringFormat="{}{0} {1}">
+                                                            <Binding Path="Name" />
+                                                            <Binding Path="Surname" />
+                                                        </MultiBinding>
+                                                    </TextBlock.Text>
+                                                </TextBlock>
+                                            </StackPanel>
+                                        </ItemContainerTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            </ScrollViewer>
+            <Label Grid.Row="3" Grid.RowSpan="1"  Content="{Binding AlertMessage}" FontWeight="Bold" Foreground="Brown" FontSize="15" />
     </Grid>
 </Page>

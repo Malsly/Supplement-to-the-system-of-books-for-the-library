@@ -11,9 +11,11 @@ namespace DAL.Abs
     {
         public ILibraryContext Context { get; set; }
         IEnumerable<TEntity> Get();
+        TEntity GetByID(int? id);
         TEntity GetByID(int id);
         void Insert(TEntity entity);
         void Delete(int id);
+        void Delete(int? id);
         void Delete(TEntity entityToDelete);
         void Update(TEntity entityToUpdate);
 

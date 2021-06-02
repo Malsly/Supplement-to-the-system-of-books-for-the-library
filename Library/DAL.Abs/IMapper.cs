@@ -7,7 +7,7 @@ namespace DAL.Abs
 {
    public interface IMapper<TEntity, TEntityDTO> 
        where TEntity : class 
-       where TEntityDTO : IEntity 
+       where TEntityDTO : class
     {
         TEntityDTO Map(TEntity entity);
         TEntity DeMap(TEntityDTO dto);

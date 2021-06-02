@@ -25,6 +25,14 @@ namespace DAL.Imp
             TEntity entityToDelete = DbSet.Find(id);
             Delete(entityToDelete);
         }
+        public void Delete(int? id)
+        {
+            if (id != null)
+            {
+                TEntity entityToDelete = DbSet.Find(id);
+                Delete(entityToDelete);
+            }
+        }
 
         public void Delete(TEntity entityToDelete)
         {
@@ -45,6 +53,16 @@ namespace DAL.Imp
         {
             TEntity entityByID = DbSet.Find(id);
             return entityByID;
+        }
+
+        public TEntity GetByID(int? id)
+        {
+            if (id != null) 
+            {
+                TEntity entityByID = DbSet.Find(id);
+                return entityByID;
+            }
+            return null;
         }
 
         public void Insert(TEntity entity)

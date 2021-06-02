@@ -51,9 +51,27 @@ namespace BL.Impl
             };
         }
 
+        public IResult Delete(int? id)
+        {
+            if (id != null) 
+            {
+                Rep.Delete(id);
+                unitOfWork.Save();
+                return new Result()
+                {
+                    ResponceStatusType = ResponceStatusType.Successed
+                };
+            }
+            return new Result()
+            {
+                Message = "Not finded",
+                ResponceStatusType = ResponceStatusType.Error
+            };
+        }
+
         public IResult Delete(BookDTO dto)
         {
-            return this.Delete(dto.Id);
+            return this.Delete(dto.PrintedEditionOrderID);
         }
 
         public IDataResult<BookDTO> Get(int id)

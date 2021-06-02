@@ -18,12 +18,12 @@ namespace DAL.Imp.Mappers
 
         public Book DeMap(BookDTO dto)
         {
-            Book book = repo.GetByID(dto.Id);
+            Book book = repo.GetByID(dto.PrintedEditionOrderID);
             if (book == null)
             {
                 return EntityDTOConverter.BookDTOtoBook(dto);
             }
-            book.Id = dto.Id;
+            book.PrintedEditionOrderID = dto.PrintedEditionOrderID;
             book.Name = dto.Name;
             book.Rate = dto.Rate;
             book.Authors = dto.Authors.Select(author => EntityDTOConverter.AuthorDTOtoAuthor(author)).ToList();

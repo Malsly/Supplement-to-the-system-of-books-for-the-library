@@ -66,6 +66,22 @@ namespace BL.Impl
             };
         }
 
+        public IDataResult<PrintedEditionOrderDTO> Get(int? id)
+        {
+            if (id != null) 
+            {
+                return new DataResult<PrintedEditionOrderDTO>()
+                {
+                    Data = Mapper.Map(Rep.GetByID(id)),
+                    ResponceStatusType = ResponceStatusType.Successed
+                };
+            }
+            return new DataResult<PrintedEditionOrderDTO>()
+            {
+                ResponceStatusType = ResponceStatusType.Error
+            };
+        }
+
         public IDataResult<List<PrintedEditionOrderDTO>> GetAll()
         {
             return new DataResult<List<PrintedEditionOrderDTO>>()

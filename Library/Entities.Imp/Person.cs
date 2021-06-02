@@ -19,8 +19,8 @@ namespace Entities.Imp
 
         public virtual Accaunt Accaunt { get; set; }
 
-        public ICollection<PrintedEditionOrder> BookDebt { get; set; }
-        public ICollection<PrintedEditionOrder> TakenBook { get; set; }
+        public virtual ICollection<PrintedEditionOrder> BookDebt { get; set; }
+        public virtual ICollection<PrintedEditionOrder> TakenBook { get; set; }
 
     }
 }

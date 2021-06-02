@@ -2,6 +2,7 @@
 using Entities.Imp;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 
@@ -44,7 +45,7 @@ namespace DAL.Imp
                     BookDebt = person.BookDebt.Select(order => PROrderDTOtoPROrder(order)).ToList(),
                     Name = person.Name,
                     Surname = person.Surname,
-                    TakenBook = new List<PrintedEditionOrder>(),
+                    TakenBook = new List<PrintedEditionOrder>()
                 };
             }
 
@@ -58,7 +59,7 @@ namespace DAL.Imp
                     BookDebt = new List<PrintedEditionOrder>(),
                     Name = person.Name,
                     Surname = person.Surname,
-                    TakenBook = person.TakenBook.Select(order => PROrderDTOtoPROrder(order)).ToList(),
+                    TakenBook = person.TakenBook.Select(order => PROrderDTOtoPROrder(order)).ToList()
                 };
             }
 
@@ -70,7 +71,7 @@ namespace DAL.Imp
                 BookDebt = new List<PrintedEditionOrder>(),
                 Name = person.Name,
                 Surname = person.Surname,
-                TakenBook = new List<PrintedEditionOrder>(),
+                TakenBook = new List<PrintedEditionOrder>()
             };
         }
         public static PersonDTO PersontoPersonDTO(Person person)
@@ -86,10 +87,10 @@ namespace DAL.Imp
                         Id = PersonInDB.Id,
                         Access = PersonInDB.Access,
                         Birthday = PersonInDB.Birthday,
-                        BookDebt = PersonInDB.BookDebt.Select(order => PROrdertoPROrderDTO(order)).ToList(),
+                        BookDebt = new ObservableCollection<PrintedEditionOrderDTO>(PersonInDB.BookDebt.Select(order => PROrdertoPROrderDTO(order)).ToList()),
                         Name = PersonInDB.Name,
                         Surname = PersonInDB.Surname,
-                        TakenBook = PersonInDB.TakenBook.Select(order => PROrdertoPROrderDTO(order)).ToList(),
+                        TakenBook = new ObservableCollection<PrintedEditionOrderDTO>(PersonInDB.TakenBook.Select(order => PROrdertoPROrderDTO(order)).ToList())
                     };
                 }
 
@@ -100,10 +101,10 @@ namespace DAL.Imp
                         Id = PersonInDB.Id,
                         Access = PersonInDB.Access,
                         Birthday = PersonInDB.Birthday,
-                        BookDebt = PersonInDB.BookDebt.Select(order => PROrdertoPROrderDTO(order)).ToList(),
+                        BookDebt = new ObservableCollection<PrintedEditionOrderDTO>(PersonInDB.BookDebt.Select(order => PROrdertoPROrderDTO(order)).ToList()),
                         Name = PersonInDB.Name,
                         Surname = PersonInDB.Surname,
-                        TakenBook = new List<PrintedEditionOrderDTO>(),
+                        TakenBook = new ObservableCollection<PrintedEditionOrderDTO>()
                     };
                 }
 
@@ -114,10 +115,10 @@ namespace DAL.Imp
                         Id = PersonInDB.Id,
                         Access = PersonInDB.Access,
                         Birthday = PersonInDB.Birthday,
-                        BookDebt = new List<PrintedEditionOrderDTO>(),
+                        BookDebt = new ObservableCollection<PrintedEditionOrderDTO>(),
                         Name = PersonInDB.Name,
                         Surname = PersonInDB.Surname,
-                        TakenBook = PersonInDB.TakenBook.Select(order => PROrdertoPROrderDTO(order)).ToList(),
+                        TakenBook = new ObservableCollection<PrintedEditionOrderDTO>(PersonInDB.TakenBook.Select(order => PROrdertoPROrderDTO(order)).ToList())
                     };
                 }
 
@@ -126,10 +127,10 @@ namespace DAL.Imp
                     Id = PersonInDB.Id,
                     Access = PersonInDB.Access,
                     Birthday = PersonInDB.Birthday,
-                    BookDebt = new List<PrintedEditionOrderDTO>(),
+                    BookDebt = new ObservableCollection<PrintedEditionOrderDTO>(),
                     Name = PersonInDB.Name,
                     Surname = PersonInDB.Surname,
-                    TakenBook = new List<PrintedEditionOrderDTO>(),
+                    TakenBook = new ObservableCollection<PrintedEditionOrderDTO>()
                 };
             }
 
@@ -141,10 +142,10 @@ namespace DAL.Imp
                     Id = person.Id,
                     Access = person.Access,
                     Birthday = person.Birthday,
-                    BookDebt = person.BookDebt.Select(order => PROrdertoPROrderDTO(order)).ToList(),
+                    BookDebt = new ObservableCollection<PrintedEditionOrderDTO>(person.BookDebt.Select(order => PROrdertoPROrderDTO(order)).ToList()),
                     Name = person.Name,
                     Surname = person.Surname,
-                    TakenBook = person.TakenBook.Select(order => PROrdertoPROrderDTO(order)).ToList(),
+                    TakenBook = new ObservableCollection<PrintedEditionOrderDTO>(person.TakenBook.Select(order => PROrdertoPROrderDTO(order)).ToList()),
                 };
             }
 
@@ -155,10 +156,10 @@ namespace DAL.Imp
                     Id = person.Id,
                     Access = person.Access,
                     Birthday = person.Birthday,
-                    BookDebt = person.BookDebt.Select(order => PROrdertoPROrderDTO(order)).ToList(),
+                    BookDebt = new ObservableCollection<PrintedEditionOrderDTO>(person.BookDebt.Select(order => PROrdertoPROrderDTO(order)).ToList()),
                     Name = person.Name,
                     Surname = person.Surname,
-                    TakenBook = new List<PrintedEditionOrderDTO>(),
+                    TakenBook = new ObservableCollection<PrintedEditionOrderDTO>(),
                 };
             }
 
@@ -169,10 +170,10 @@ namespace DAL.Imp
                     Id = person.Id,
                     Access = person.Access,
                     Birthday = person.Birthday,
-                    BookDebt = new List<PrintedEditionOrderDTO>(),
+                    BookDebt = new ObservableCollection<PrintedEditionOrderDTO>(),
                     Name = person.Name,
                     Surname = person.Surname,
-                    TakenBook = person.TakenBook.Select(order => PROrdertoPROrderDTO(order)).ToList(),
+                    TakenBook = new ObservableCollection<PrintedEditionOrderDTO>(person.TakenBook.Select(order => PROrdertoPROrderDTO(order)).ToList()),
                 };
             }
 
@@ -181,10 +182,10 @@ namespace DAL.Imp
                 Id = person.Id,
                 Access = person.Access,
                 Birthday = person.Birthday,
-                BookDebt = new List<PrintedEditionOrderDTO>(),
+                BookDebt = new ObservableCollection<PrintedEditionOrderDTO>(),
                 Name = person.Name,
                 Surname = person.Surname,
-                TakenBook = new List<PrintedEditionOrderDTO>(),
+                TakenBook = new ObservableCollection<PrintedEditionOrderDTO>(),
             };
         }
 
@@ -205,6 +206,8 @@ namespace DAL.Imp
                     EndDate = printedEditionOrderDTO.EndDate,
                     Book = BookDTOtoBook(printedEditionOrderDTO.PrintedEdition),
                     StartDate = printedEditionOrderDTO.StartDate,
+                    BookDebtId = printedEditionOrderDTO.BookDebtId,
+                    TakenBookId = printedEditionOrderDTO.TakenBookId
                 };
             }
 
@@ -214,12 +217,14 @@ namespace DAL.Imp
                 EndDate = printedEditionOrderDTO.EndDate,
                 Book = null,
                 StartDate = printedEditionOrderDTO.StartDate,
+                BookDebtId = printedEditionOrderDTO.BookDebtId,
+                TakenBookId = printedEditionOrderDTO.TakenBookId
             };
         }
         public static PrintedEditionOrderDTO PROrdertoPROrderDTO(PrintedEditionOrder printedEditionOrderDTO)
         {
             PrintedEditionOrder PEOrderInDB = unitOfWork.PrintedEditionOrderRepository.GetByID(printedEditionOrderDTO.Id);
-
+            
             if (PEOrderInDB != null)
             {
                 if (PEOrderInDB.Book != null)
@@ -230,6 +235,8 @@ namespace DAL.Imp
                         EndDate = PEOrderInDB.EndDate,
                         PrintedEdition = BooktoBookDTO(PEOrderInDB.Book),
                         StartDate = PEOrderInDB.StartDate,
+                        BookDebtId = printedEditionOrderDTO.BookDebtId,
+                        TakenBookId = printedEditionOrderDTO.TakenBookId
                     };
                 }
 
@@ -239,6 +246,8 @@ namespace DAL.Imp
                     EndDate = PEOrderInDB.EndDate,
                     PrintedEdition = null,
                     StartDate = PEOrderInDB.StartDate,
+                    BookDebtId = printedEditionOrderDTO.BookDebtId,
+                    TakenBookId = printedEditionOrderDTO.TakenBookId
                 };
             }
 
@@ -250,7 +259,10 @@ namespace DAL.Imp
                     EndDate = printedEditionOrderDTO.EndDate,
                     PrintedEdition = BooktoBookDTO(printedEditionOrderDTO.Book),
                     StartDate = printedEditionOrderDTO.StartDate,
+                    BookDebtId = printedEditionOrderDTO.BookDebtId,
+                    TakenBookId = printedEditionOrderDTO.TakenBookId
                 };
+
             }
 
             return new PrintedEditionOrderDTO()
@@ -259,12 +271,14 @@ namespace DAL.Imp
                 EndDate = printedEditionOrderDTO.EndDate,
                 PrintedEdition = null,
                 StartDate = printedEditionOrderDTO.StartDate,
+                BookDebtId = printedEditionOrderDTO.BookDebtId,
+                TakenBookId = printedEditionOrderDTO.TakenBookId
             };
         }
 
         public static Book BookDTOtoBook(BookDTO book)
         {
-            Book bookInDB = unitOfWork.BookRepository.GetByID(book.Id);
+            Book bookInDB = unitOfWork.BookRepository.GetByID(book.PrintedEditionOrderID);
 
             if (bookInDB != null) 
             {
@@ -275,7 +289,7 @@ namespace DAL.Imp
             {
                 return new Book()
                 {
-                    Id = book.Id,
+                    PrintedEditionOrderID = book.PrintedEditionOrderID,
                     Authors = book.Authors.Select(author => AuthorDTOtoAuthor(author)).ToList(),
                     Rate = book.Rate,
                     Name = book.Name,
@@ -284,7 +298,7 @@ namespace DAL.Imp
 
             return new Book()
             {
-                Id = book.Id,
+                PrintedEditionOrderID = book.PrintedEditionOrderID,
                 Authors = new List<Author>(),
                 Rate = book.Rate,
                 Name = book.Name,
@@ -292,7 +306,7 @@ namespace DAL.Imp
         }
         public static BookDTO BooktoBookDTO(Book book)
         {
-            Book bookInDB = unitOfWork.BookRepository.GetByID(book.Id);
+            Book bookInDB = unitOfWork.BookRepository.GetByID(book.PrintedEditionOrderID);
 
             if (bookInDB != null)
             {
@@ -300,8 +314,8 @@ namespace DAL.Imp
                 {
                     return new BookDTO()
                     {
-                        Id = bookInDB.Id,
-                        Authors = bookInDB.Authors.Select(author => AuthortoAuthorDTO(author)).ToList(),
+                        PrintedEditionOrderID = bookInDB.PrintedEditionOrderID,
+                        Authors = new ObservableCollection<AuthorDTO>(bookInDB.Authors.Select(author => AuthortoAuthorDTO(author)).ToList()),
                         Rate = bookInDB.Rate,
                         Name = bookInDB.Name,
                     };
@@ -309,8 +323,8 @@ namespace DAL.Imp
 
                 return new BookDTO()
                 {
-                    Id = bookInDB.Id,
-                    Authors = new List<AuthorDTO>(),
+                    PrintedEditionOrderID = bookInDB.PrintedEditionOrderID,
+                    Authors = new ObservableCollection<AuthorDTO>(),
                     Rate = bookInDB.Rate,
                     Name = bookInDB.Name,
                 };
@@ -320,8 +334,8 @@ namespace DAL.Imp
             {
                 return new BookDTO()
                 {
-                    Id = book.Id,
-                    Authors = book.Authors.Select(author => AuthortoAuthorDTO(author)).ToList(),
+                    PrintedEditionOrderID = book.PrintedEditionOrderID,
+                    Authors = new ObservableCollection<AuthorDTO>(book.Authors.Select(author => AuthortoAuthorDTO(author)).ToList()),
                     Rate = book.Rate,
                     Name = book.Name,
                 };
@@ -329,8 +343,8 @@ namespace DAL.Imp
 
             return new BookDTO()
             {
-                Id = book.Id,
-                Authors = new List<AuthorDTO>(),
+                PrintedEditionOrderID = book.PrintedEditionOrderID,
+                Authors = new ObservableCollection<AuthorDTO>(),
                 Rate = book.Rate,
                 Name = book.Name,
             };

@@ -23,21 +23,12 @@ namespace DAL.Imp
             modelBuilder.Entity<Accaunt>()
                 .HasOptional<Person>(a => a.Person)
                 .WithRequired(ab => ab.Accaunt)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete();
 
             modelBuilder.Entity<PrintedEditionOrder>()
                .HasOptional(s => s.Book) 
-               .WithRequired(ad => ad.PrintedEditionOrder);
-
-            modelBuilder.Entity<PrintedEditionOrder>()
-               .HasRequired<Person>(s => s.PersonDebtOrder)
-               .WithMany(g => g.BookDebt)
-               .HasForeignKey<int?>(s => s.PersonDebtOrderId);
-
-            modelBuilder.Entity<PrintedEditionOrder>()
-               .HasRequired<Person>(s => s.PersonTakenOrder)
-               .WithMany(g => g.TakenBook)
-               .HasForeignKey<int?>(s => s.PersonTakenOrderId).WillCascadeOnDelete(false);
+               .WithRequired(ad => ad.PrintedEditionOrder)
+               .WillCascadeOnDelete();
 
             modelBuilder.Entity<Book>()
                .HasMany<Author>(s => s.Authors)
@@ -49,6 +40,17 @@ namespace DAL.Imp
                    cs.ToTable("BookAuthor");
                });
 
+            modelBuilder.Entity<Person>()
+            .HasMany<PrintedEditionOrder>(s => s.BookDebt)
+            .WithOptional(g => g.BookDebt)
+            .HasForeignKey<int?>(s => s.BookDebtId)
+            .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Person>()
+            .HasMany<PrintedEditionOrder>(s => s.TakenBook)
+            .WithOptional(g => g.TakenBook)
+            .HasForeignKey<int?>(s => s.TakenBookId)
+            .WillCascadeOnDelete(false);
         }
 
         public System.Data.Entity.DbSet<Person> Persons { get ; set ; }

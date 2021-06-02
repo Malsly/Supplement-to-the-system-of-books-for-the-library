@@ -13,10 +13,10 @@ namespace Entities.Imp
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
 
-        public int? PersonDebtOrderId { get; set; }
-        public Person PersonDebtOrder { get; set; }
-        public int? PersonTakenOrderId { get; set; }
-        public Person PersonTakenOrder { get; set; }
+        public int? BookDebtId { get; set; }
+        public virtual Person BookDebt { get; set; }
+        public int? TakenBookId { get; set; }
+        public virtual Person TakenBook { get; set; }
 
 
         public virtual Book Book { get; set; }

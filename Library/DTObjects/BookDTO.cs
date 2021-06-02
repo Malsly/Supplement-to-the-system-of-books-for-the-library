@@ -4,14 +4,15 @@ using System.Text;
 using Entities.Abs;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Collections.ObjectModel;
 
 namespace DTObjects
 {
     public class BookDTO: IPrintedEdition, INotifyPropertyChanged
     {
-        public int Id { get; set; }
+        public int? PrintedEditionOrderID { get; set; }
         private string name;
-        private List<AuthorDTO> authors;
+        private ObservableCollection<AuthorDTO> authors;
         private float rate;
 
         public string Name
@@ -24,7 +25,7 @@ namespace DTObjects
             }
         }
 
-        public List<AuthorDTO> Authors
+        public ObservableCollection<AuthorDTO> Authors
         {
             get { return authors; }
             set
