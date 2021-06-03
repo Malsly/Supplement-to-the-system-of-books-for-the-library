@@ -17,6 +17,7 @@ namespace ViewModels
         private AccauntService accauntService = new AccauntService();
         private PersonService personService = new PersonService();
         private PrintedEditionOrderService printedEditionOrderService = new PrintedEditionOrderService();
+        private AuthorService authorService  = new AuthorService();
         private BookService bookService = new BookService();
 
         private Frame frame;
@@ -28,13 +29,18 @@ namespace ViewModels
         private PrintedEditionOrderDTO selectedAvailableBook;
         private PrintedEditionOrderDTO selectedTakenBook;
         private PrintedEditionOrderDTO selectedBookDebt;
-        private Visibility returnBookVisibility;
-        private Visibility addBookVisibility;
-        private Visibility getBookVisibility;
-        private string alertMessage;
         private ObservableCollection<PrintedEditionOrderDTO> availableBooks = new ObservableCollection<PrintedEditionOrderDTO>();
         private ObservableCollection<PrintedEditionOrderDTO> takenBooks = new ObservableCollection<PrintedEditionOrderDTO>();
         private ObservableCollection<PrintedEditionOrderDTO> debtBooks = new ObservableCollection<PrintedEditionOrderDTO>();
+        private Visibility returnBookVisibility;
+        private Visibility addBookVisibility;
+        private Visibility getBookVisibility;
+        private string bookName;
+        private string bookRate;
+        private string alertMessage;
+        private string authorName;
+        private string authorSurname;
+        private DateTime authorBirthday;
 
 
         private RelayCommand spoilBookCommand;
@@ -48,6 +54,7 @@ namespace ViewModels
             this.frame = mainFrame;
             this.accaunt = accauntDTO;
             this.loginPage = loginPage;
+            this.authorBirthday = DateTime.Now;
             UpdateBooksList();
             SetButtonVisability();
         }
@@ -221,6 +228,57 @@ namespace ViewModels
             }
         }
 
+        public string AuthorName
+        {
+            get { return authorName; }
+            set
+            {
+                authorName = value;
+                OnPropertyChanged("AuthorName");
+            }
+        }
+
+        public string AuthorSurname
+        {
+            get { return authorSurname; }
+            set
+            {
+                authorSurname = value;
+                OnPropertyChanged("AuthorSurname");
+            }
+        }
+
+        public DateTime AuthorBirthday
+        {
+            get { return authorBirthday; }
+            set
+            {
+                authorBirthday = value;
+                OnPropertyChanged("AuthorBirthday");
+            }
+        }
+
+        public string BookRate
+        {
+            get { return bookRate; }
+            set
+            {
+                bookRate = value;
+                OnPropertyChanged("BookRate");
+            }
+        }
+
+        public string BookName
+        {
+            get { return bookName; }
+            set
+            {
+                bookName = value;
+                OnPropertyChanged("BookName");
+            }
+        }
+            
+
         public RelayCommand LogoutCommand
         {
             get
@@ -298,11 +356,59 @@ namespace ViewModels
                   (addBookCommand = new RelayCommand(obj =>
                   {
                       if (Accaunt.Person.Access == Access.Administrator || Accaunt.Person.Access == Access.Library) 
-                      { 
+                      {
+                          PrintedEditionOrderDTO newPrintedEditionOrder = null;
+                          float.TryParse(BookRate, out float floatRate);
+                          PrintedEditionOrderDTO printedEditionOrderDTO = printedEditionOrderService.GetAll().Data.FirstOrDefault(prO => prO.PrintedEdition.Name == BookName);
+                          if (printedEditionOrderDTO != null)
+                          {
+                              BookDTO newBook = new BookDTO()
+                              {
+                                  Authors = printedEditionOrderDTO.PrintedEdition.Authors,
+                                  Name = printedEditionOrderDTO.PrintedEdition.Name,
+                                  Rate = printedEditionOrderDTO.PrintedEdition.Rate,
+                              };
 
+                              newPrintedEditionOrder = new PrintedEditionOrderDTO()
+                              {
+                                  EndDate = DateTime.Now,
+                                  StartDate = DateTime.Now,
+                                  TakenBookId = library.Id,
+                                  BookDebtId = null,
+                                  PrintedEdition = newBook
+                              };
+                          }
+                          else 
+                          {
+                              BookDTO newBook = null;
+                              AuthorDTO newAuthor = authorService.GetAll().Data.FirstOrDefault(auth => auth.Name == AuthorName && auth.Surname == AuthorSurname);
+                              if (newAuthor == null)
+                              {
+                                  newAuthor = new AuthorDTO { Name = AuthorName, Surname = AuthorSurname, Birthday = AuthorBirthday };
+                              }
+
+                              newBook = new BookDTO()
+                              {
+                                  Authors = new ObservableCollection<AuthorDTO>() { newAuthor },
+                                  Name = BookName,
+                                  Rate = floatRate,
+                              };
+
+                              newPrintedEditionOrder = new PrintedEditionOrderDTO()
+                              {
+                                  EndDate = DateTime.Now,
+                                  StartDate = DateTime.Now,
+                                  TakenBookId = library.Id,
+                                  BookDebtId = null,
+                                  PrintedEdition = newBook
+                              };
+                          }
+
+                          library.TakenBook.Add(newPrintedEditionOrder);
+                          personService.Update(library);
+                          UpdateBooksList();
+                          AlertMessage = "Add Book success";
                       }
-
-                      AlertMessage = "Add Book success";
                   }));
             }
         }

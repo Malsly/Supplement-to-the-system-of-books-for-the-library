@@ -46,7 +46,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-            <Popup Width="202" Height="202" x:Name="addBookPopUp"  IsOpen="False">
+            <Popup IsEnabled="True" Width="202" Height="202" x:Name="addBookPopUp"  IsOpen="False">
                 <Grid Background="WhiteSmoke">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -63,15 +63,16 @@
                     </Grid.RowDefinitions>
                     <Button Click="buttonCloseAddBookPopup_Click"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Close form" x:Name="buttonCloseAddBookPopup"/>
                     <Label Grid.Row="1" Grid.Column="0" Content="Author name: "/>
-                    <TextBlock Grid.Row="1" Grid.Column="1" Text="Text"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding AuthorName}"/>
+                    <AccessText />
                     <Label Grid.Row="2" Grid.Column="0" Content="Author surname: "/>
-                    <TextBlock Grid.Row="2" Grid.Column="1" Text="Text"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding AuthorSurname}"/>
                     <Label Grid.Row="3" Grid.Column="0" Content="Author birthday: "/>
-                    <TextBlock Grid.Row="3" Grid.Column="1" Text="Text"/>
+                    <DatePicker SelectedDate="{Binding AuthorBirthday, UpdateSourceTrigger=PropertyChanged}"  Grid.Row="3" Grid.Column="1" x:Name="datePersonBirthday" Height="35" Text=""  VerticalContentAlignment="Center"/>
                     <Label Grid.Row="4" Grid.Column="0" Content="Book name: "/>
-                    <TextBlock Grid.Row="4" Grid.Column="1" Text="Text"/>
+                    <TextBox IsEnabled="True" Grid.Row="4" Grid.Column="1" Text="{Binding BookName}"/>
                     <Label Grid.Row="5" Grid.Column="0" Content="Book rate: "/>
-                    <TextBlock Grid.Row="5" Grid.Column="1" Text="Text"/>
+                    <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding BookRate}"/>
                     <Button Grid.Row="6" Grid.ColumnSpan="2" Grid.Column="0" Content="Add book"  x:Name="buttonAddBookPopup" Command="{Binding AddBookCommand}"/>
                 </Grid>
             </Popup>
